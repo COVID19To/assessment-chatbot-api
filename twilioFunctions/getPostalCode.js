@@ -17,7 +17,7 @@ exports.handler = async function (context, event, callback) {
           name: 'ask_questions',
           questions: questions,
           on_complete: {
-            redirect: `${process.env.ASSESMENT_API}/nearestCent`
+            redirect: `${process.env.ASSESMENT_API}/nearestCenter`
           }
         }
       }]

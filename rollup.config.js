@@ -160,22 +160,5 @@ export default [
       format: 'cjs'
     },
     plugins: [resolve()]
-  },
-  {
-    input: 'twilioFunctions/nearestHosp.js',
-    output: {
-      file: 'functions/nearestHosp.js',
-      format: 'cjs'
-    },
-    plugins: [resolve()]
-  },
-  {
-    input: 'twilioFunctions/nearestCent.js',
-    output: {
-      file: 'functions/nearestCent.js',
-      format: 'cjs'
-    },
-    plugins: [resolve()]
   }
-
 ]
