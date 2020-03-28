@@ -19,6 +19,13 @@ jobs:
         node-version: [10.x]
 
     steps:
+    - uses: TickX/var-to-dotenv@v1.1.1
+      with:
+       key: 'SOME_API_URI' # [Required]
+       value: ${{secrets.SOME_API_URI}} # [Required]
+       default: 'https://api.alt.com' # [Optional] if `value` is empty, this is used instead
+       nullable: 'false' # [Optional] if the resolved value is empty, the variable will be omitted
+       envPath: '.env' # [Optional] The path to the dotenv file (defaults to `.env`)
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -29,3 +36,12 @@ jobs:
     - run: npm run deploy
       env:
         CI: true
+        OCD_API_KEY: ${{ secrets.OCD_API_KEY }}
+        ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+        AUTH_TOKEN:  ${{ secrets.AUTH_TOKEN }}
+        MYSQL_USERNAME:  ${{ secrets.ACCOUNT_SID }}
+        MYSQL_PASS:  ${{ secrets.ACCOUNT_SID }}
+        MYSQL_DATABASE:  ${{ secrets.ACCOUNT_SID }}
+        MYSQL_HOST:  ${{ secrets.ACCOUNT_SID }}
+        MYSQL_PORT:  ${{ secrets.ACCOUNT_SID }}
+        ASSESMENT_API:  ${{ secrets.ACCOUNT_SID }}
