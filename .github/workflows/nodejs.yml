@@ -36,6 +36,7 @@ jobs:
       - run: echo $OCD_API_KEY >> .env
       - run: echo $ACCOUNT_SID >> .env
       - run: echo $AUTH_TOKEN >> .env
+      - run: cat .env
       - run: npm ci
       - run: npm run build --if-present
       - run: npm run deploy
