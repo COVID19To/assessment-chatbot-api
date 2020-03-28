@@ -2,7 +2,6 @@ const { getTextForFunction } = require('../lib/index')
 
 exports.handler = async function (context, event, callback) {
   const message = await getTextForFunction('Information_Router', 'SMS')
-
   const responseObject = {
     actions: [
       {

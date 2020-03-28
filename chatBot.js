@@ -23,7 +23,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/nearestCenter')
+    const { handler } = require('./twilioFunctions/nearestCenter')
     handler(null, event, callback)
   })
 
@@ -51,7 +51,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/nearestHospital')
+    const { handler } = require('./twilioFunctions/nearestHospital')
     handler(null, event, callback)
   })
 
@@ -62,7 +62,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/informationRoute')
+    const { handler } = require('./twilioFunctions/informationRoute')
     handler(null, event, callback)
   })
 
@@ -90,7 +90,7 @@ module.exports = (router) => {
       res.send(respond)
     }
 
-    const { handler } = require('../twilioFunctions/triage1')
+    const { handler } = require('./twilioFunctions/triage1')
     handler(null, event, callback)
   })
 
@@ -118,7 +118,7 @@ module.exports = (router) => {
       res.send(respond)
     }
 
-    const { handler } = require('../twilioFunctions/triage2')
+    const { handler } = require('./twilioFunctions/triage2')
     handler(null, event, callback)
   })
 
@@ -146,7 +146,7 @@ module.exports = (router) => {
       res.send(respond)
     }
 
-    const { handler } = require('../twilioFunctions/triage3')
+    const { handler } = require('./twilioFunctions/triage3')
     handler(null, event, callback)
   })
 
@@ -174,7 +174,7 @@ module.exports = (router) => {
       res.send(respond)
     }
 
-    const { handler } = require('../twilioFunctions/triage4')
+    const { handler } = require('./twilioFunctions/triage4')
     handler(null, event, callback)
   })
 
@@ -185,7 +185,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/Questions1')
+    const { handler } = require('./twilioFunctions/Questions1')
     handler(null, event, callback)
   })
 
@@ -196,7 +196,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/Questions2')
+    const { handler } = require('./twilioFunctions/Questions2')
     handler(null, event, callback)
   })
 
@@ -207,7 +207,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/Questions3')
+    const { handler } = require('./twilioFunctions/Questions3')
     handler(null, event, callback)
   })
 
@@ -218,7 +218,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/Questions4')
+    const { handler } = require('./twilioFunctions/Questions4')
     handler(null, event, callback)
   })
 
@@ -229,7 +229,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/getPostalCode')
+    const { handler } = require('./twilioFunctions/getPostalCode')
     handler(null, event, callback)
   })
 
@@ -240,7 +240,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/collectfallback')
+    const { handler } = require('./twilioFunctions/collectfallback')
     handler(null, event, callback)
   })
 
@@ -251,7 +251,7 @@ module.exports = (router) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('../twilioFunctions/greetings')
+    const { handler } = require('./twilioFunctions/greetings')
     handler(null, event, callback)
   })
 }
