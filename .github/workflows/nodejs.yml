@@ -45,8 +45,9 @@ jobs:
       - run: echo ASSESMENT_API=$ASSESMENT_API >> .env
       - run: echo TWILIO_ACCOUNT_SID=$ACCOUNT_SID >> .env
       - run: echo TWILIO_AUTH_TOKEN=$AUTH_TOKEN >> .env
-      - run: echo TWILIO_API_KEY=$TWILIO_API_KEY >> .env
       - run: echo TWILIO_API_SECRET=$AUTH_TOKEN >> .env
+      - run: echo TWILIO_API_KEY=$TWILIO_API_KEY >> .env
+      - run: cat .env
       - run: npm install -g twilio-cli
       - run: npm install
       - run: twilio plugins:install @dabblelab/plugin-autopilot
