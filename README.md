@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/COVID19To/assessment-chatbot-api/workflows/Node.js%20CI/badge.svg)
+
 ### Made for the COVID19 Chat bot
 
 ### How to add a new Function
