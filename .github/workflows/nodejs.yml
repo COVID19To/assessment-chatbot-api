@@ -45,5 +45,6 @@ jobs:
       - run: echo TWILIO_ACCOUNT_SID=$ACCOUNT_SID >> .env
       - run: echo TWILIO_AUTH_TOKEN=$AUTH_TOKEN >> .env
       - run: npm install
+      - run: twilio plugins:install @dabblelab/plugin-autopilot
       - run: npm run build --if-present
       - run: npm run deploy
