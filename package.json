@@ -24,6 +24,7 @@
     "sequelize": "^5.21.5"
   },
   "devDependencies": {
+    "@dabblelab/plugin-autopilot": "^1.0.2",
     "twilio-cli": "1.11.0",
     "twilio-run": "^2.0.0",
     "@rollup/plugin-commonjs": "^11.0.2",
