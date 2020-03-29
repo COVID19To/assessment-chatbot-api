@@ -21,21 +21,27 @@ jobs:
       OCD_API_KEY: ${{ secrets.OCD_API_KEY }}
       ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
       AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-      MYSQL_USERNAME: ${{ secrets.ACCOUNT_SID }}
-      MYSQL_PASS: ${{ secrets.ACCOUNT_SID }}
-      MYSQL_DATABASE: ${{ secrets.ACCOUNT_SID }}
-      MYSQL_HOST: ${{ secrets.ACCOUNT_SID }}
-      MYSQL_PORT: ${{ secrets.ACCOUNT_SID }}
-      ASSESMENT_API: ${{ secrets.ACCOUNT_SID }}
+      MYSQL_USERNAME: ${{ secrets.MYSQL_USERNAME }}
+      MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
+      MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+      MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+      MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
+      ASSESMENT_API: ${{ secrets.ASSESMENT_API }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo $OCD_API_KEY >> .env
-      - run: echo $ACCOUNT_SID >> .env
-      - run: echo $AUTH_TOKEN >> .env
+      - run: echo OCD_API_KEY=$OCD_API_KEY >> .env
+      - run: echo ACCOUNT_SID=$ACCOUNT_SID >> .env
+      - run: echo AUTH_TOKEN=$AUTH_TOKEN >> .env
+      - run: echo MYSQL_USERNAME=$MYSQL_USERNAME >> .env
+      - run: echo MYSQL_PASS=$MYSQL_PASS >> .env
+      - run: echo MYSQL_DATABASE=$MYSQL_DATABASE >> .env
+      - run: echo MYSQL_HOST=$MYSQL_HOST >> .env
+      - run: echo MYSQL_PORT=$MYSQL_PORT >> .env
+      - run: echo ASSESMENT_API=$ASSESMENT_API >> .env
       - run: cat .env
       - run: npm ci
       - run: npm run build --if-present
