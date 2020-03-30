@@ -1,41 +1,46 @@
 const { getTextForFunction } = require('../lib/index')
 
 exports.handler = async function (context, event, callback) {
-  let responseObject = {}
-  let message = ''
-  const memory = JSON.parse(event.Memory)
+  try {
+    let responseObject = {}
+    let message = ''
+    const memory = JSON.parse(event.Memory)
 
-  const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer
+    const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer
 
-  if (Breathing === 'Yes') {
+    if (Breathing === 'Yes') {
     // Evaluate-Answers
-    message = await getTextForFunction('Evaluate-Answers')
+      message = await getTextForFunction('Evaluate-Answers')
 
-    responseObject = {
-      actions: [
-        {
-          say: message
-        },
-        {
-          redirect: `${process.env.ASSESMENT_API}/getHospitalPostalCode`
-        },
-        {
-          listen: true
-        }
-      ]
+      responseObject = {
+        actions: [
+          {
+            say: message
+          },
+          {
+            redirect: `${process.env.ASSESMENT_API}/getHospitalPostalCode`
+          },
+          {
+            listen: true
+          }
+        ]
+      }
+      callback(null, responseObject)
+    } else {
+      responseObject = {
+        actions: [
+          {
+            redirect: `${process.env.ASSESMENT_API}/Questions2`
+          },
+          {
+            listen: true
+          }
+        ]
+      }
+      callback(null, responseObject)
     }
-    callback(null, responseObject)
-  } else {
-    responseObject = {
-      actions: [
-        {
-          redirect: `${process.env.ASSESMENT_API}/Questions2`
-        },
-        {
-          listen: true
-        }
-      ]
-    }
-    callback(null, responseObject)
+  } catch (e) {
+    rollbar.log(e)
+    callback(e)
   }
 }

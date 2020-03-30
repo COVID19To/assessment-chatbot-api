@@ -2,7 +2,13 @@ const hospitalTable = 'HospitalDetails'
 const centerTable = 'CenterDetails'
 const messagesTable = 'TwilioMessages'
 const Sequelize = require('sequelize')
+var Rollbar = require('rollbar')
 
+var rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+})
 const db = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USERNAME, process.env.MYSQL_PASS, {
   database: process.env.MYSQL_DATABASE,
   username: process.env.MYSQL_USERNAME,
@@ -52,5 +58,6 @@ module.exports = {
   messagesTable,
   messageTableDB,
   centerTableDB,
-  hospitalTableDB
+  hospitalTableDB,
+  rollbar
 }

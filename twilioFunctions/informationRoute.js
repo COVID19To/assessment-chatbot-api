@@ -1,31 +1,36 @@
 const { getTextForFunction } = require('../lib/index')
 
 exports.handler = async function (context, event, callback) {
-  const message = await getTextForFunction('Information_Router', 'SMS')
-  const responseObject = {
-    actions: [
-      {
-        say: message
-      },
-      {
-        listen: {
-          voice_digits: {
-            redirects: {
-              0: 'task://LanguageSelection',
-              1: 'task://newsupdate',
-              2: 'task://questions',
-              3: 'task://self-isolation',
-              4: 'task://safety-tips',
-              5: 'task://goodbye'
-            },
-            finish_on_key: '#',
-            num_digits: 1
+  try {
+    const message = await getTextForFunction('Information_Router', 'SMS')
+    const responseObject = {
+      actions: [
+        {
+          say: message
+        },
+        {
+          listen: {
+            voice_digits: {
+              redirects: {
+                0: 'task://LanguageSelection',
+                1: 'task://newsupdate',
+                2: 'task://questions',
+                3: 'task://self-isolation',
+                4: 'task://safety-tips',
+                5: 'task://goodbye'
+              },
+              finish_on_key: '#',
+              num_digits: 1
+            }
           }
         }
-      }
-    ]
+      ]
+    }
+    callback(null, responseObject)
+  } catch (e) {
+    rollbar.log(e)
+    callback(e)
   }
-  callback(null, responseObject)
 
   // Current PRod
   // [
