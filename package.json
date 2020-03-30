@@ -24,10 +24,13 @@
     "rollbar": "^2.15.0",
     "sequelize": "^5.21.5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "devDependencies": {
     "@dabblelab/plugin-autopilot": "^1.0.2",
-    "twilio-cli": "1.11.0",
-    "twilio-run": "^2.0.0",
     "@rollup/plugin-commonjs": "^11.0.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
@@ -35,9 +38,12 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.3",
     "nodemon": "^2.0.2",
     "rollup": "^2.1.0",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "twilio-cli": "1.11.0",
+    "twilio-run": "^2.0.0"
   },
   "engines": {
     "node": "10.17.0"
