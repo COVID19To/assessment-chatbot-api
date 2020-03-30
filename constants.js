@@ -4,7 +4,7 @@ const messagesTable = 'TwilioMessages'
 const Sequelize = require('sequelize')
 var Rollbar = require('rollbar')
 
-var rollbar = new Rollbar({
+var logger = new Rollbar({
   accessToken: process.env.ROLLBAR_TOKEN,
   captureUncaught: true,
   captureUnhandledRejections: true
@@ -59,5 +59,5 @@ module.exports = {
   messageTableDB,
   centerTableDB,
   hospitalTableDB,
-  rollbar
+  logger
 }

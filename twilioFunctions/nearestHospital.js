@@ -1,6 +1,6 @@
 const { getTop3Centers, defaultHospitalCodeTxt, getTextForFunction } = require('../lib')
 const { hospitalTable } = require('../constants')
-
+const { logger } = require('../constants')
 exports.handler = async (context, event, callback) => {
   try {
     let responseObject = {}
@@ -30,7 +30,7 @@ exports.handler = async (context, event, callback) => {
     }
     callback(null, responseObject)
   } catch (e) {
-    rollbar.log(e)
+    logger.log(e)
     callback(e)
   }
 }

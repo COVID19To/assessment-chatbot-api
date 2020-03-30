@@ -1,5 +1,6 @@
 const { getTextForFunction } = require('../lib/index')
-const { rollbar } = require('../constants')
+const { logger } = require('../constants')
+
 exports.handler = async function (context, event, callback) {
   try {
     let responseObject = {}
@@ -43,7 +44,7 @@ exports.handler = async function (context, event, callback) {
       callback(null, responseObject)
     }
   } catch (e) {
-    rollbar.log(e)
+    logger.log(e)
     callback(e)
   }
 }

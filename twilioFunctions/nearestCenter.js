@@ -1,6 +1,5 @@
 const { getTop3Centers, defaultAssementCodeTxt, getTextForFunction } = require('../lib')
-const { centerTable } = require('../constants')
-
+const { centerTable, logger } = require('../constants')
 const nearestCenter = async (context, event, callback) => {
   try {
     let responseObject = {}
@@ -29,7 +28,7 @@ const nearestCenter = async (context, event, callback) => {
     }
     callback(null, responseObject)
   } catch (e) {
-    rollbar.log(e)
+    logger.log(e)
     callback(e)
   }
 }
