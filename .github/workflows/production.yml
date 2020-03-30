@@ -24,7 +24,7 @@ jobs:
       MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE_PROD }}
       MYSQL_HOST: ${{ secrets.MYSQL_HOST_PROD }}
       MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
-      ASSESMENT_API: ${{ secrets.ASSESMENT_API_PROD }}
+      ASSESMENT_API: https://assessment-center-api-7940-prod.twil.io
       TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
       TWILIO_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       TWILIO_ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
