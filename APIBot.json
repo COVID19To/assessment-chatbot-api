@@ -1,428 +1,444 @@
 {
-    "friendlyName" : "",
-    "logQueries" : true,
-    "uniqueName" : "APIBot",
-    "defaults" : {
-        "defaults" : {
-            "assistant_initiation" : "task://greeting",
-            "fallback" : "task://fallback",
-            "collect" : {
-                "validate_on_failure" : "task://collect_fallback"
+    "friendlyName": "APIBot development version",
+    "logQueries": true,
+    "uniqueName": "APIBot",
+    "defaults": {
+        "defaults": {
+            "assistant_initiation": "task://greeting",
+            "fallback": "task://fallback",
+            "collect": {
+                "validate_on_failure": "task://collect_fallback"
             }
         }
     },
-    "styleSheet" : {
-        "style_sheet" : {
-            "collect" : {
-                "validate" : {
-                    "on_failure" : {
-                        "repeat_question" : false,
-                        "messages" : [
+    "styleSheet": {
+        "style_sheet": {
+            "collect": {
+                "validate": {
+                    "on_failure": {
+                        "repeat_question": false,
+                        "messages": [
                             {
-                                "say" : {
-                                    "speech" : "I didn't get that. What did you say?"
+                                "say": {
+                                    "speech": "I didn't get that. What did you say?"
                                 }
                             },
                             {
-                                "say" : {
-                                    "speech" : "I still didn't catch that. Please repeat."
+                                "say": {
+                                    "speech": "I still didn't catch that. Please repeat."
                                 }
                             },
                             {
-                                "say" : {
-                                    "speech" : "Let's try one last time. Say it again please."
+                                "say": {
+                                    "speech": "Let's try one last time. Say it again please."
                                 }
                             }
                         ]
                     },
-                    "on_success" : { "say" : { "speech" : "" } },
-                    "max_attempts" : 4
+                    "on_success": {
+                        "say": {
+                            "speech": ""
+                        }
+                    },
+                    "max_attempts": 4
                 }
             },
-            "voice" : {
-                "say_voice" : "Polly.Matthew"
+            "voice": {
+                "say_voice": "Polly.Matthew"
             },
-            "name" : ""
+            "name": ""
         }
     },
-    "fieldTypes" : [],
-    "tasks" : [
+    "fieldTypes": [],
+    "tasks": [
         {
-            "uniqueName" : "questions",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "questions",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/Questions1"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/Questions1"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "2"
+                    "language": "en-US",
+                    "taggedText": "2"
                 }
             ]
         },
         {
-            "uniqueName" : "safety-tips",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "safety-tips",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/safetytips"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/safetytips"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "4"
+                    "language": "en-US",
+                    "taggedText": "4"
                 }
             ]
         },
         {
-            "uniqueName" : "self-isolation",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "self-isolation",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/selfisolation"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/selfisolation"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "3"
+                    "language": "en-US",
+                    "taggedText": "3"
                 }
             ]
         },
         {
-            "uniqueName" : "newsupdate",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "newsupdate",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/newsupdate"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/newsupdate"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "1"
+                    "language": "en-US",
+                    "taggedText": "1"
                 }
             ]
         },
         {
-            "uniqueName" : "goodbye",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "getPostalCode",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/goodbye"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/getPostalCode"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": []
+        },
+        {
+            "uniqueName": "goodbye",
+            "actions": {
+                "actions": [
+                    {
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/goodbye"
+                    }
+                ]
+            },
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "5"
+                    "language": "en-US",
+                    "taggedText": "5"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "5"
+                    "language": "en-US",
+                    "taggedText": "5"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "5"
+                    "language": "en-US",
+                    "taggedText": "5"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "5"
+                    "language": "en-US",
+                    "taggedText": "5"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "that's all"
+                    "language": "en-US",
+                    "taggedText": "that's all"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "bye bye"
+                    "language": "en-US",
+                    "taggedText": "bye bye"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "stop talking"
+                    "language": "en-US",
+                    "taggedText": "stop talking"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "go away"
+                    "language": "en-US",
+                    "taggedText": "go away"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "good bye"
+                    "language": "en-US",
+                    "taggedText": "good bye"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "stop"
+                    "language": "en-US",
+                    "taggedText": "stop"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all thanks"
+                    "language": "en-US",
+                    "taggedText": "that would be all thanks"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "goodnight"
+                    "language": "en-US",
+                    "taggedText": "goodnight"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "see ya"
+                    "language": "en-US",
+                    "taggedText": "see ya"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
+                    "language": "en-US",
+                    "taggedText": "no thanks"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "goodbye"
+                    "language": "en-US",
+                    "taggedText": "goodbye"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
+                    "language": "en-US",
+                    "taggedText": "no thanks"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "no"
+                    "language": "en-US",
+                    "taggedText": "no"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all"
+                    "language": "en-US",
+                    "taggedText": "that would be all"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "cancel"
+                    "language": "en-US",
+                    "taggedText": "cancel"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "that is all thank you"
+                    "language": "en-US",
+                    "taggedText": "that is all thank you"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "that's all for today"
+                    "language": "en-US",
+                    "taggedText": "that's all for today"
                 }
             ]
         },
         {
-            "uniqueName" : "greeting",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "greeting",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/greetings"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/greetings"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : [
+            "fields": [],
+            "samples": [
                 {
-                    "language" : "en-US",
-                    "taggedText" : "sup"
+                    "language": "en-US",
+                    "taggedText": "sup"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "whatsup"
+                    "language": "en-US",
+                    "taggedText": "whatsup"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "what do you do"
+                    "language": "en-US",
+                    "taggedText": "what do you do"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "what'us up"
+                    "language": "en-US",
+                    "taggedText": "what'us up"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "hi!"
+                    "language": "en-US",
+                    "taggedText": "hi!"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "yo"
+                    "language": "en-US",
+                    "taggedText": "yo"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "Hello."
+                    "language": "en-US",
+                    "taggedText": "Hello."
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "hello"
+                    "language": "en-US",
+                    "taggedText": "hello"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "what can you do"
+                    "language": "en-US",
+                    "taggedText": "what can you do"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "hey"
+                    "language": "en-US",
+                    "taggedText": "hey"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "hi there."
+                    "language": "en-US",
+                    "taggedText": "hi there."
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "hi there"
+                    "language": "en-US",
+                    "taggedText": "hi there"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "Hi"
+                    "language": "en-US",
+                    "taggedText": "Hi"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "heya"
+                    "language": "en-US",
+                    "taggedText": "heya"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "good morning"
+                    "language": "en-US",
+                    "taggedText": "good morning"
                 },
                 {
-                    "language" : "en-US",
-                    "taggedText" : "good afternoon"
+                    "language": "en-US",
+                    "taggedText": "good afternoon"
                 }
             ]
         },
         {
-            "uniqueName" : "collect_fallback",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "collect_fallback",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/collectfallback"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/collectfallback"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : []
+            "fields": [],
+            "samples": []
         },
         {
-            "uniqueName" : "fallback",
-            "actions" : {
-                "actions" : [
+            "uniqueName": "fallback",
+            "actions": {
+                "actions": [
                     {
-                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/fallback"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/fallback"
                     }
                 ]
             },
-            "fields" : [],
-            "samples" : []
+            "fields": [],
+            "samples": []
         }
     ],
-    "modelBuild" : {
-        "uniqueName" : "APIBot_24-3-2020_4.02.18pm"
+    "modelBuild": {
+        "uniqueName": "Built on 03-27-2020 21:34:34"
     }
 }

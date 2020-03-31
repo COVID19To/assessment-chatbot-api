@@ -1,26 +1,32 @@
 const { getTextForFunction } = require('../lib/index')
+const { logger } = require('../constants')
 
 exports.handler = async function (context, event, callback) {
-  const message = await getTextForFunction('getPostalCode')
-  const questions = [
-    {
-      question: {
-        say: message
-      },
-      name: 'PostalCode'
-    }
-  ]
-  const responseObject = {
-    actions: [
+  try {
+    const message = await getTextForFunction('getPostalCode')
+    const questions = [
       {
-        collect: {
-          name: 'ask_questions',
-          questions: questions,
-          on_complete: {
-            redirect: `${process.env.ASSESMENT_API}/nearestCenter`
+        question: {
+          say: message
+        },
+        name: 'PostalCode'
+      }
+    ]
+    const responseObject = {
+      actions: [
+        {
+          collect: {
+            name: 'ask_questions',
+            questions: questions,
+            on_complete: {
+              redirect: `${process.env.ASSESMENT_API}/nearestCenter`
+            }
           }
-        }
-      }]
+        }]
+    }
+    callback(null, responseObject)
+  } catch (e) {
+    logger.log(e)
+    callback(e)
   }
-  callback(null, responseObject)
 }

@@ -1,20 +1,25 @@
 const { getTextForFunction } = require('../lib/index')
-
+const { logger } = require('../constants')
 exports.handler = async function (context, event, callback) {
-  const message = await getTextForFunction('NewsUpdate', 'SMS')
+  try {
+    const message = await getTextForFunction('NewsUpdate', 'SMS')
 
-  const responseObject = {
-    actions: [
-      {
-        say: message
-      },
-      {
-        redirect: `${process.env.ASSESMENT_API}/informationRoute`
-      },
-      {
-        listen: false
-      }
-    ]
+    const responseObject = {
+      actions: [
+        {
+          say: message
+        },
+        {
+          redirect: `${process.env.ASSESMENT_API}/informationRoute`
+        },
+        {
+          listen: false
+        }
+      ]
+    }
+    callback(null, responseObject)
+  } catch (e) {
+    logger.log(e)
+    callback(e)
   }
-  callback(null, responseObject)
 }

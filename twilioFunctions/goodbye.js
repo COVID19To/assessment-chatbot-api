@@ -1,14 +1,20 @@
 const { getTextForFunction } = require('../lib/index')
+const { logger } = require('../constants')
 
 exports.handler = async function (context, event, callback) {
-  const message = await getTextForFunction('Goodbye')
+  try {
+    const message = await getTextForFunction('Goodbye')
 
-  const responseObject = {
-    actions: [
-      {
-        say: message
-      }
-    ]
+    const responseObject = {
+      actions: [
+        {
+          say: message
+        }
+      ]
+    }
+    callback(null, responseObject)
+  } catch (e) {
+    logger.log(e)
+    callback(e)
   }
-  callback(null, responseObject)
 }
