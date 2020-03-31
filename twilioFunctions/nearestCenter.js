@@ -3,7 +3,7 @@ const { centerTable, logger } = require('../constants')
 const nearestCenter = async (context, event, callback) => {
   try {
     let responseObject = {}
-    const memory = JSON.parse(event.Memory)
+    const memory = JSON.parse(JSON.stringify(event.Memory))
     const postalCode =
     memory.twilio.collected_data.ask_questions.answers.PostalCode.answer
 
