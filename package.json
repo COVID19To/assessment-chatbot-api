@@ -6,7 +6,7 @@
     "start": "nodemon app.js",
     "build": "rollup -c",
     "deploy": "npm run build && twilio-run deploy && twilio autopilot:update --schema APIBot.json ",
-    "deploy:prod": "npm run build && twilio-run deploy --environment=prod && twilio autopilot:update --schema MediGenieSMS.json && twilio autopilot:update --schema MediGenieVoice.json",
+    "deploy:prod": "npm run build && twilio-run deploy --environment=prod && twilio autopilot:update --schema MediGenieSMS.json",
     "lint": "eslint \"**/*.js\"",
     "preseed": "npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
