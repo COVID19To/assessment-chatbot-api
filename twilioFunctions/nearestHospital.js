@@ -4,7 +4,7 @@ const { logger } = require('../constants')
 exports.handler = async (context, event, callback) => {
   try {
     let responseObject = {}
-    const memory = JSON.parse(JSON.stringify(event.Memory))
+    const memory = JSON.parse(event.Memory)
     const postalCode =
     memory.twilio.collected_data.ask_questions.answers.HPostalCode.answer
 
