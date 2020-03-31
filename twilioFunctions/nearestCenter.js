@@ -8,10 +8,11 @@ const nearestCenter = async (context, event, callback) => {
     memory.twilio.collected_data.ask_questions.answers.PostalCode.answer
 
     const top3 = await getTop3Centers(centerTable, postalCode)
-    const startTxt = await getTextForFunction('getCenterDetails')
+    const startTxt = await getTextForFunction('getCenterDetails', event.Channel)
     const result = await defaultAssementCodeTxt(
       startTxt,
-      top3
+      top3,
+      event.Channel
     )
     responseObject = {
       actions: [

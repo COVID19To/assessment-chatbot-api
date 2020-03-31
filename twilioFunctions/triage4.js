@@ -10,7 +10,7 @@ exports.handler = async function (context, event, callback) {
     const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer || 'No'
 
     if (Breathing === 'No') {
-      message = await getTextForFunction('Evaluate-Answers4A')
+      message = await getTextForFunction('Evaluate-Answers4A', event.Channel)
 
       responseObject = {
         actions: [
@@ -27,7 +27,7 @@ exports.handler = async function (context, event, callback) {
       }
       callback(null, responseObject)
     } else {
-      message = await getTextForFunction('Evaluate-Answers4B')
+      message = await getTextForFunction('Evaluate-Answers4B', event.Channel)
       responseObject = {
         actions: [
           {

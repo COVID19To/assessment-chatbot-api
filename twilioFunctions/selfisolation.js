@@ -2,7 +2,7 @@ const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
 exports.handler = async function (context, event, callback) {
   try {
-    const message = await getTextForFunction('Self-Isolation')
+    const message = await getTextForFunction('Self-Isolation', event.Channel)
 
     const responseObject = {
       actions: [
