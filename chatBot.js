@@ -26,7 +26,34 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/nearestCenter')
     handler(null, event, callback)
   })
+  // getHospitalPostalCode
+  router.post('/getHospitalPostalCode', async (req, res) => {
+    const postalCode = req.body.postalCode
+    // Pushing into Twilio format
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              HPostalCode: {
+                answer: postalCode
+              }
+            }
+          }
+        }
+      }
+    })
 
+    const event = {
+      Memory: mem
+    }
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/getHospitalPostalCode')
+    handler(null, event, callback)
+  })
   router.post('/nearestHospital', async (req, res) => {
     const postalCode = req.body.postalCode
     // Pushing into Twilio format

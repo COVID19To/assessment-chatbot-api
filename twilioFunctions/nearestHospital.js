@@ -21,13 +21,14 @@ exports.handler = async (context, event, callback) => {
           say: result
         },
         {
-          redirect: 'task://information_router'
+          redirect: `${process.env.ASSESMENT_API}/informationRoute`
         },
         {
           listen: false
         }
       ]
     }
+
     callback(null, responseObject)
   } catch (e) {
     logger.log(e)
