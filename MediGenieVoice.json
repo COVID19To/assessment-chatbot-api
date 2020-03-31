@@ -1,5 +1,5 @@
 {
-    "friendlyName" : "Provide Patients information about Home Care,Medical Care and etc.,",
+    "friendlyName" : "This is to let people self triage for Covid19 using Messaging channels",
     "logQueries" : true,
     "uniqueName" : "MediGenieVoice",
     "defaults" : {
@@ -40,7 +40,7 @@
                 }
             },
             "voice" : {
-                "say_voice" : "Polly.Joey"
+                "say_voice" : "Polly.Matthew"
             },
             "name" : ""
         }
@@ -48,11 +48,11 @@
     "fieldTypes" : [],
     "tasks" : [
         {
-            "uniqueName" : "getCenterDetails",
+            "uniqueName" : "nearestHospital",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/getCenterDetails"
+                        "say" : "This is your new Task"
                     }
                 ]
             },
@@ -60,107 +60,11 @@
             "samples" : []
         },
         {
-            "uniqueName" : "getPostalCode",
+            "uniqueName" : "goodbye",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/getPostalCode"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "evaluate-answers4",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Triage4"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "Questions4",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Questions4"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "evaluate-answers3",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Triage3"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "Questions3",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Questions3"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "evaluate-answers2",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Triage2"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "Questions2",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Questions2"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "evaluate-answers",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Triage1"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "questions",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://wenge-chihuahua-7603.twil.io/Questions1"
+                        "say" : "This is your new Task"
                     }
                 ]
             },
@@ -168,238 +72,149 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "2"
+                    "taggedText" : "that's all"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "2"
+                    "taggedText" : "stop talking"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "2"
+                    "taggedText" : "good bye"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "2"
+                    "taggedText" : "goodnight"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "2"
+                    "taggedText" : "cancel"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "test_collect"
+                    "taggedText" : "bye bye"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "test_collect"
+                    "taggedText" : "go away"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "test_collect"
+                    "taggedText" : "see ya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "goodbye"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "stop"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that is all thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that would be all thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's all for today"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that would be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
                 }
             ]
         },
         {
-            "uniqueName" : "safety-tips",
+            "uniqueName" : "talk_to_front_desk",
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "Wash hands at the door and at regular intervals. Change Clothing when entering home from public space. Wash Coats every 1-2 Days. Avoid touching face, cover coughs & sneezes. Disinfect surfaces and utensils daily. Increase ventilation by opening windows or adjusting AC. Provide a protected space for vulnerable household members. Limit Non-essential travel even domestic. Limit eating in public spaces"
+                        "say" : "Perfect, I'll connect you with the front desk."
                     },
                     {
-                        "redirect" : "task://information_router"
-                    },
-                    { "listen" : false }
-                ]
-            },
-            "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "4"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "self-isolation",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "You   must   self-isolate.   If   you   have   travelled   internationally   within   the   last   14   days.   If   you   have   any   COVID-19   symptoms.   If you had   close   contact   with   a    COVID-19   confirmed   case.   Please   do   not   go   to   an   emergency   department,   family   doctor   or   walk-in   clinic   unless  your   symptoms   worsen.   Don't   go   to   any   public   places,   stay   at   home,   and   don’t   have   any   visitors"
-                    },
-                    {
-                        "redirect" : "task://information_router"
-                    },
-                    { "listen" : false }
-                ]
-            },
-            "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "3"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "self-isolation"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "newsupdate",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "As , of ,March , 25 , 7:30 AM, 588 , confirmed ,  cases  , in  , Ontario ,  617,  cases,  in,   BC ,  358,  cases , in ,  Alberta , 221 ,  Cases , in ,  Quebec ,  and  , 1959  , confirmed  , cases   in   Canada"
-                    },
-                    {
-                        "redirect" : "task://information_router"
-                    },
-                    { "listen" : false }
-                ]
-            },
-            "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "1"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "newsupdate"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "information_router",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : ", , , For , , , COVID-19 , , , News , , , Update , , , Press , , , 1 , , , , For , , , COVID-19 , , , Triage , , , Press , , , 2 , , , , For , , , COVID-19 , , , Self-isolation , , , Press , , ,3 , , , , For , , , COVID-19 , , , Prevention , , , Tips , , , Press , , , 4 , , , For , , , exit , , , press , , , 5"
-                    },
-                    {
-                        "listen" : {
-                            "voice_digits" : {
-                                "redirects" : {
-                                    "1" : "task://newsupdate",
-                                    "2" : "task://questions",
-                                    "3" : "task://self-isolation",
-                                    "4" : "task://safety-tips",
-                                    "5" : "task://goodbye"
-                                },
-                                "finish_on_key" : "#",
-                                "num_digits" : 1
-                            }
+                        "handoff" : {
+                            "method" : "POST",
+                            "channel" : "voice",
+                            "uri" : "https://handler.twilio.com/twiml/EHec1bbf48c2000f95f0506e6c1c54af72"
                         }
                     }
                 ]
             },
             "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "Inprogress",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "We are building this option. Please come back later"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Front Desk."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "someone"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "front desk"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the front desk"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "reception"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "need help"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "help"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the receptionist"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent"
+                }
+            ]
         },
         {
             "uniqueName" : "greeting",
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "Hello You have reached COVID-19 Information and self triage help line"
+                        "say" : "Hi, thanks for contacting us. I can put you in touch with sales, support, investor relations, or our front desk. Who do you like to talk to today?"
                     },
-                    {
-                        "redirect" : "task://information_router"
-                    },
-                    { "listen" : false }
+                    { "listen" : true }
                 ]
             },
             "fields" : [],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "Hi"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Hi"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what do you do"
+                    "taggedText" : "what can you do"
                 },
                 {
                     "language" : "en-US",
@@ -407,7 +222,7 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "what can you do"
+                    "taggedText" : "yo"
                 },
                 {
                     "language" : "en-US",
@@ -415,27 +230,7 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "yo"
-                },
-                {
-                    "language" : "en-US",
                     "taggedText" : "whatsup"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi!"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi there."
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "heya"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what'us up"
                 },
                 {
                     "language" : "en-US",
@@ -443,15 +238,15 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "hello"
+                    "taggedText" : "what do you do"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "good afternoon"
+                    "taggedText" : "heya"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "hi there"
+                    "taggedText" : "hi!"
                 },
                 {
                     "language" : "en-US",
@@ -459,24 +254,29 @@
                 },
                 {
                     "language" : "en-US",
+                    "taggedText" : "what'us up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good afternoon"
+                },
+                {
+                    "language" : "en-US",
                     "taggedText" : "Hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
                 }
             ]
-        },
-        {
-            "uniqueName" : "fallback",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "I'm sorry didn't quite get that. Please say that again."
-                    },
-                    {
-                        "redirect" : "task://information_router"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
         },
         {
             "uniqueName" : "collect_fallback",
@@ -492,108 +292,11 @@
             "samples" : []
         },
         {
-            "uniqueName" : "goodbye",
+            "uniqueName" : "talk_to_support",
             "actions" : {
                 "actions" : [
                     {
-                        "say" : "Thank you! Please reach out again if you need anything. Goodbye."
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "5"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's all"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "stop"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "bye bye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "stop talking"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "cancel"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good bye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "see ya"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "goodbye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "goodnight"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "go away"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that is all thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's all for today"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "contact_information",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "Perfect, I'll connect you with the hotline."
+                        "say" : "Thanks for contacting support. I'll connect you with a customer support representative."
                     },
                     {
                         "handoff" : {
@@ -608,36 +311,181 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "call"
+                    "taggedText" : "support"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "hotline"
+                    "taggedText" : "customer service please"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "talk to"
+                    "taggedText" : "customer service"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "not sure"
+                    "taggedText" : "my product is not working"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "need help"
+                    "taggedText" : "support please."
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "someone"
+                    "taggedText" : "need support"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "help"
+                    "taggedText" : "talk to customer service."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "someone to help me troubleshoot"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to support"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "customer support please"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "talk_to_investor_relations",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Thanks for contacting Investor Relations. I'll connect you right away."
+                    },
+                    {
+                        "handoff" : {
+                            "method" : "POST",
+                            "channel" : "voice",
+                            "uri" : "https://handler.twilio.com/twiml/EHec1bbf48c2000f95f0506e6c1c54af72"
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "investor relations"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "investor folks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to investor relations"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "IR"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to IR."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "investor information"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "relations with investors"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Investor relations."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "investors"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "help investors"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "I'm sorry didn't quite get that. Please say that again."
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "talk_to_sales",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Thanks for contacting sales. I'll connect you with a sales representative shortly."
+                    },
+                    {
+                        "handoff" : {
+                            "method" : "POST",
+                            "channel" : "voice",
+                            "uri" : "https://handler.twilio.com/twiml/EHec1bbf48c2000f95f0506e6c1c54af72"
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sales"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Talk to sales."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to sales"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to someone in sales"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sales please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to a salesperson"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Sales."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "have some questions about the product"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to find out pricing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "learn more about the product"
                 }
             ]
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "MediGenieVoice_25-3-2020_8.22.54am"
+        "uniqueName" : "CovidBotMessaging_26-3-2020_12.04.34am"
     }
 }

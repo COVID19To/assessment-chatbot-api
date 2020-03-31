@@ -1,0 +1,711 @@
+{
+    "friendlyName" : "COVID19BOT2",
+    "logQueries" : true,
+    "uniqueName" : "COVID19BOT2",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://greeting",
+            "fallback" : "task://fallback",
+            "collect" : {
+                "validate_on_failure" : "task://collect_fallback"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "collect" : {
+                "validate" : {
+                    "on_failure" : {
+                        "repeat_question" : false,
+                        "messages" : [
+                            {
+                                "say" : {
+                                    "speech" : "I didn't get that. What did you say?"
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "I still didn't catch that. Please repeat."
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "Let's try one last time. Say it again please."
+                                }
+                            }
+                        ]
+                    },
+                    "on_success" : { "say" : { "speech" : "" } },
+                    "max_attempts" : 4
+                }
+            },
+            "voice" : {
+                "say_voice" : "Polly.Kimberly"
+            },
+            "name" : ""
+        }
+    },
+    "fieldTypes" : [],
+    "tasks" : [
+        {
+            "uniqueName" : "sorry",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "I’m sorry to hear that"
+                    },
+                    {
+                        "say" : "I am going to ask you a series of questions to help me better determine our course of action"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am feeling pain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am feeling pain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am coughing a lot "
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am having difficulty in breathing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "fever"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "My temperature is so high"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am so tired"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "so sick "
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I think I have Corona "
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I’m not feeling well"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Ok",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Great!, let’s begin;"
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nice"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Cool"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "What are the questions"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I am ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "That's great"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "OK"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "questions",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/Questions1"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "2"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "evaluate-answers",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/triage1"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "Questions2",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/Questions2"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "evaluate-answers2",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/triage2"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "Questions3",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/Questions3"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "evaluate-answers3",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/triage3"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "Questions4",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/Questions4"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "evaluate-answers4",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/triage4"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "newsupdate",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "As  of  March  19  6:30 PM,  258 confirmed cases  in Ontario, 271  cases  in  BC, 146  cases in  Alberta, 121  Cases  in  Quebec and  846 confirmed cases  in  Canada"
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    },
+                    { "listen" : false }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "self-isolation",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "You   must   self-isolate.   If   you   have   travelled   internationally   within   the   last   14   days.   If   you   have   any   COVID-19   symptoms.   If you had   close   contact   with   a    COVID-19   confirmed   case.   Please   do   not   go   to   an   emergency   department,   family   doctor   or   walk-in   clinic   unless  your   symptoms   worsen.   Don't   go   to   any   public   places,   stay   at   home,   and   don’t   have   any   visitors"
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    },
+                    { "listen" : false }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "3"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "safety-tips",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Wash hands at the door and at regular intervals. Change Clothing when entering home from public space. Wash Coats every 1-2 Days. Avoid touching face, cover coughs & sneezes. Disinfect surfaces and utensils daily. Increase ventilation by opening windows or adjusting AC. Provide a protected space for vulnerable household members. Limit Non-essential travel even domestic. Limit eating in public spaces"
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    },
+                    { "listen" : false }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "4"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "getPostalCode",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/getPostalCode"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "getCenterDetails",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/nearestCenter"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "LanguageSelection",
+            "actions" : {
+                "actions" : [
+                    {
+                        "remember" : { "Language" : "fr" }
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    },
+                    { "listen" : false }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "0"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "0"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "getHospitalPostalCode",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://wenge-chihuahua-7603.twil.io/getHospitalPostalCode"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "nearestHospital",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/nearestHospital"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "I'm sorry didn't quite get that. Please say that again."
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "collect_fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "goodbye",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Thank you! Please reach out again if you need anything. Goodbye."
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "5"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "5"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "5"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "5"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "stop talking"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "goodbye"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good bye"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bye bye"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "see ya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that would be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "stop"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's all for today"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "goodnight"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "go away"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that would be all thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that is all thank you"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "greeting",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Hello You have reached COVID-19 Information and self triage help line!"
+                    },
+                    {
+                        "redirect" : "https://assessment-center-api-4281-dev.twil.io/informationRoute"
+                    },
+                    { "listen" : false }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "so sick "
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hi, I am sick"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what do you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yo"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "whatsup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hello."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what can you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what'us up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good afternoon"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "heya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good morning"
+                }
+            ]
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "Built on 03-27-2020 21:15:28"
+    }
+}

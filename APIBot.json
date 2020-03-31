@@ -1,5 +1,5 @@
 {
-    "friendlyName": "",
+    "friendlyName": "APIBot development version",
     "logQueries": true,
     "uniqueName": "APIBot",
     "defaults": {
@@ -56,7 +56,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/Questions1"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/Questions1"
                     }
                 ]
             },
@@ -101,7 +101,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/safetytips"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/safetytips"
                     }
                 ]
             },
@@ -146,7 +146,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/selfisolation"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/selfisolation"
                     }
                 ]
             },
@@ -191,7 +191,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/newsupdate"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/newsupdate"
                     }
                 ]
             },
@@ -232,7 +232,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/getPostalCode"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/getPostalCode"
                     }
                 ]
             },
@@ -244,7 +244,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/goodbye"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/goodbye"
                     }
                 ]
             },
@@ -341,7 +341,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/greetings"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/greetings"
                     }
                 ]
             },
@@ -418,7 +418,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/collectfallback"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/collectfallback"
                     }
                 ]
             },
@@ -430,7 +430,7 @@
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-4281-dev.twil.io/fallback"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/fallback"
                     }
                 ]
             },
@@ -439,6 +439,6 @@
         }
     ],
     "modelBuild": {
-        "uniqueName": "APIBot_24-3-2020_4.02.18pm"
+        "uniqueName": "Built on 03-27-2020 21:34:34"
     }
 }
