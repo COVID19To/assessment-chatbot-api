@@ -3,7 +3,7 @@ const { logger } = require('../constants')
 
 exports.handler = async function (context, event, callback) {
   try {
-    const message = await getTextForFunction('Fallback', 'Both', 'English')
+    const message = await getTextForFunction('Fallback', event.Channel, 'Both', 'English')
     const responseObject = {
       actions: [
         {

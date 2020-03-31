@@ -12,7 +12,7 @@ exports.handler = async function (context, event, callback) {
 
     if (Breathing === 'Yes') {
     // Evaluate-Answers
-      message = await getTextForFunction('Evaluate-Answers')
+      message = await getTextForFunction('Evaluate-Answers', event.Channel)
 
       responseObject = {
         actions: [

@@ -9,10 +9,11 @@ exports.handler = async (context, event, callback) => {
     memory.twilio.collected_data.ask_questions.answers.HPostalCode.answer
 
     const top3 = await getTop3Centers(hospitalTable, postalCode)
-    const startTxt = await getTextForFunction('getHospitalDetails')
+    const startTxt = await getTextForFunction('getHospitalDetails', event.Channel)
     const result = await defaultHospitalCodeTxt(
       startTxt,
-      top3
+      top3,
+      event.Channel
     )
 
     responseObject = {
