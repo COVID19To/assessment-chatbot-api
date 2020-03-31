@@ -5,7 +5,7 @@ exports.handler = async function (context, event, callback) {
   try {
     let responseObject = {}
     let message = ''
-    logger.log(event)
+    callback(event)
     const memory = JSON.parse(event.Memory)
 
     const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer
