@@ -9,8 +9,6 @@ exports.handler = async function (context, event, callback) {
     const Language = setLanguageOptions(options)
     const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
 
-    callback(null, {Language, options});
-
     const message = await getTextForFunction('NewsUpdate', channel, channel, Language)
 
     const responseObject = {
