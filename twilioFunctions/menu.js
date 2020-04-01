@@ -30,11 +30,11 @@ exports.handler = async function (context, event, callback) {
             voice_digits: {
               redirects: {
                 0: 'task://LanguageSelection',
-                1: 'task://newsupdate',
-                2: 'task://questions',
-                3: 'task://self-isolation',
-                4: 'task://safety-tips',
-                5: 'task://goodbye'
+                1: `${process.env.ASSESMENT_API}/newsupdate`,
+                2: `${process.env.ASSESMENT_API}/Questions1`,
+                3: `${process.env.ASSESMENT_API}/selfisolation`,
+                4: `${process.env.ASSESMENT_API}/safetytips`,
+                5: `${process.env.ASSESMENT_API}/goodbye`
               },
               finish_on_key: '#',
               num_digits: 1
