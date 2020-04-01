@@ -7,7 +7,11 @@ exports.handler = async function (context, event, callback) {
     const memory = JSON.parse(event.Memory)
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     const Language = setLanguageOptions(options)
-    const message = await getTextForFunction('NewsUpdate', event.Channel, event.Channel, Language)
+    const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
+
+    callback(null, {Language, options});
+
+    const message = await getTextForFunction('NewsUpdate', channel, channel, Language)
 
     const responseObject = {
       actions: [

@@ -281,4 +281,32 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/greetings')
     handler(null, event, callback)
   })
+
+  router.post('/newsupdate', async (req, res) => {
+    const Language = req.body.Language
+
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: Language
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
+
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+
+    const { handler } = require('./twilioFunctions/newsupdate')
+    handler(null, event, callback)
+  })
 }
