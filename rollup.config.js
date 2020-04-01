@@ -18,14 +18,6 @@ export default [
     plugins: [resolve()]
   },
   {
-    input: 'twilioFunctions/informationRoute.js',
-    output: {
-      file: 'functions/informationRoute.js',
-      format: 'cjs'
-    },
-    plugins: [resolve()]
-  },
-  {
     input: 'twilioFunctions/triage1.js',
     output: {
       file: 'functions/triage1.js',
