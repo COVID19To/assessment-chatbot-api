@@ -1,11 +1,14 @@
 const { getTop3Centers, defaultAssementCodeTxt, getTextForFunction } = require('../lib')
 const { centerTable, logger } = require('../constants')
+const { setLanguageOptions } = require('../lib/index')
+
 const nearestCenter = async (context, event, callback) => {
   try {
     let responseObject = {}
     const memory = JSON.parse(event.Memory)
     const postalCode = memory.twilio.collected_data.ask_questions.answers.PostalCode.answer
-    const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const Language = setLanguageOptions(options)
 
     const top3 = await getTop3Centers(centerTable, postalCode)
     const startTxt = await getTextForFunction('getCenterDetails', event.Channel, 'Both', Language)

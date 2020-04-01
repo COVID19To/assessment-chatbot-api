@@ -1,5 +1,7 @@
 const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
+const { setLanguageOptions } = require('../lib/index')
+
 exports.handler = async function (context, event, callback) {
   try {
     let responseObject = {}
@@ -8,7 +10,8 @@ exports.handler = async function (context, event, callback) {
 
     const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer || 'No'
 
-    const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const Language = setLanguageOptions(options)
 
     if (Breathing === 'No') {
       message = await getTextForFunction('Evaluate-Answers3', event.Channel, 'Both', Language)

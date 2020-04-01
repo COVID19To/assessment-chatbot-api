@@ -1,10 +1,12 @@
 const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
+const { setLanguageOptions } = require('../lib/index')
 
 exports.handler = async function (context, event, callback) {
   try {
     const memory = JSON.parse(event.Memory)
-    const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const Language = setLanguageOptions(options)
     const message = await getTextForFunction('Collect_Fallback', event.Channel, 'Both', Language)
     const responseObject = {
       actions: [
