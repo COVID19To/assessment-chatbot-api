@@ -11,7 +11,7 @@ exports.handler = async function (context, event, callback) {
           say: message
         },
         {
-          redirect: `${process.env.ASSESMENT_API}/menu`
+          redirect: `${process.env.ASSESMENT_API}/languagemenu`
         },
         {
           listen: false

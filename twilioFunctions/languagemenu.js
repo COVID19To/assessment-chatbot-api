@@ -11,7 +11,7 @@ exports.handler = async function (context, event, callback) {
         question: {
           say: message
         },
-        name: 'Menu'
+        name: 'Language'
       }
     ]
     const responseObject = {
@@ -21,22 +21,7 @@ exports.handler = async function (context, event, callback) {
             name: 'ask_questions',
             questions: questions,
             on_complete: {
-              redirect: `${process.env.ASSESMENT_API}/menuoptions`
-            }
-          }
-        },
-        {
-          listen: {
-            voice_digits: {
-              redirects: {
-                1: `${process.env.ASSESMENT_API}/newsupdate`,
-                2: `${process.env.ASSESMENT_API}/Questions1`,
-                3: `${process.env.ASSESMENT_API}/selfisolation`,
-                4: `${process.env.ASSESMENT_API}/safetytips`,
-                5: `${process.env.ASSESMENT_API}/goodbye`
-              },
-              finish_on_key: '#',
-              num_digits: 1
+              redirect: `${process.env.ASSESMENT_API}/languagemenuoptions`
             }
           }
         }]

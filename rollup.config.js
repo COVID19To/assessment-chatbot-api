@@ -176,5 +176,21 @@ export default [
       format: 'cjs'
     },
     plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/languagemenu.js',
+    output: {
+      file: 'functions/languagemenu.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/languagemenuoptions.js',
+    output: {
+      file: 'functions/languagemenuoptions.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
   }
 ]
