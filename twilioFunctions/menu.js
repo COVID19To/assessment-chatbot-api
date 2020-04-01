@@ -2,7 +2,6 @@ const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
 exports.handler = async function (context, event, callback) {
   try {
-
     const memory = JSON.parse(event.Memory)
     const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
