@@ -10,6 +10,8 @@
     "lint": "eslint \"**/*.js\"",
     "preseed": "npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
+    "predb:refresh": "npx sequelize db:migrate:undo:all",
+    "db:refresh": "npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
