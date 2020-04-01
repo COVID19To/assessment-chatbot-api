@@ -4,7 +4,7 @@ exports.handler = async function (context, event, callback) {
   try {
     const channel = event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
 
-    const message = await getTextForFunction('Menu', channel, channel)
+    const message = await getTextForFunction('LanguageMenu', channel, channel)
 
     const questions = [
       {
