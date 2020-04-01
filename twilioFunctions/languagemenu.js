@@ -2,9 +2,8 @@ const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
 exports.handler = async function (context, event, callback) {
   try {
-    // const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
+    const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
 
-    const channel = 'SMS'
     const message = await getTextForFunction('LanguageMenu', channel, channel)
 
     const questions = [
