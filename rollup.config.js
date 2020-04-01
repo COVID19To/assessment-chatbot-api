@@ -160,5 +160,21 @@ export default [
       format: 'cjs'
     },
     plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/menu.js',
+    output: {
+      file: 'functions/menu.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/menuoptions.js',
+    output: {
+      file: 'functions/menuoptions.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
   }
 ]
