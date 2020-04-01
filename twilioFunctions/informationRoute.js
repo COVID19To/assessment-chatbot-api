@@ -2,7 +2,7 @@ const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
 exports.handler = async function (context, event, callback) {
   try {
-    const channel = event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
+    const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
 
     const message = await getTextForFunction('Information_Router', channel, channel)
     const responseObject = {
