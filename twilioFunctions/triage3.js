@@ -8,8 +8,10 @@ exports.handler = async function (context, event, callback) {
 
     const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer || 'No'
 
+    const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+
     if (Breathing === 'No') {
-      message = await getTextForFunction('Evaluate-Answers3', event.Channel)
+      message = await getTextForFunction('Evaluate-Answers3', event.Channel, 'Both', Language)
 
       responseObject = {
         actions: [

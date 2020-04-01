@@ -3,7 +3,9 @@ const { logger } = require('../constants')
 
 exports.handler = async function (context, event, callback) {
   try {
-    const message = await getTextForFunction('Collect_Fallback', event.Channel, 'Both', 'English')
+    const memory = JSON.parse(event.Memory)
+    const Language = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const message = await getTextForFunction('Collect_Fallback', event.Channel, 'Both', Language)
     const responseObject = {
       actions: [
         {
