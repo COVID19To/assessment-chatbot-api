@@ -16,8 +16,7 @@ exports.handler = async function (context, event, callback) {
           say: message
 
         },
-        name: 'Breathing',
-        type: 'Twilio.YES_NO'
+        name: 'Breathing'
       }
     ]
     const responseObject = {
