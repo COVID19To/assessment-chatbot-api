@@ -20,7 +20,7 @@ const nearestCenter = async (context, event, callback) => {
           say: result
         },
         {
-          redirect: `${process.env.ASSESMENT_API}/informationRoute`
+          redirect: `${process.env.ASSESMENT_API}/menu`
         },
         {
           listen: false
