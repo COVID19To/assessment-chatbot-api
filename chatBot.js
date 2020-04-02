@@ -276,8 +276,22 @@ module.exports = (router) => {
   })
 
   router.get('/greetings', async (req, res) => {
-    const event = {
-    }
+    const Language = req.body.Language
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: Language
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
     const callback = (err, respond) => {
       if (err) res.send(err)
       res.send(respond)
