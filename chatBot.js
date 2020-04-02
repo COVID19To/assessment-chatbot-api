@@ -95,6 +95,7 @@ module.exports = (router) => {
 
   router.post('/triage1', async (req, res) => {
     const breathing = req.body.breathing
+    const Language = req.body.Language
 
     const mem = JSON.stringify({
       twilio: {
@@ -103,6 +104,9 @@ module.exports = (router) => {
             answers: {
               Breathing: {
                 answer: breathing
+              },
+              Language: {
+                answer: Language
               }
             }
           }

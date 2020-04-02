@@ -4,8 +4,8 @@ const messagesTable = 'TwilioMessages'
 const Sequelize = require('sequelize')
 var Rollbar = require('rollbar')
 
-const yesAllLanguages = ['Yes', 'Oui']
-const noAllLanguages = ['No', 'Non']
+const yesAllLanguages = ['yes', 'oui']
+const noAllLanguages = ['no', 'non']
 
 var logger = new Rollbar({
   accessToken: process.env.ROLLBAR_TOKEN,
