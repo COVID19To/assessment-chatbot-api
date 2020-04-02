@@ -9,7 +9,7 @@ exports.handler = async function (context, event, callback) {
 
     const memory = JSON.parse(event.Memory)
 
-    const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer.toLowercase()
+    const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer.toString().toLowerCase()
 
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     const Language = setLanguageOptions(options)
