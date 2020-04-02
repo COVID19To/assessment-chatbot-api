@@ -13,7 +13,7 @@ exports.handler = async function (context, event, callback) {
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     const Language = setLanguageOptions(options)
 
-    if (Breathing.includes(yesAllLanguages)) {
+    if (yesAllLanguages.includes(Breathing)) {
       message = await getTextForFunction('Evaluate-Answers', event.Channel, 'Both', Language)
 
       responseObject = {
