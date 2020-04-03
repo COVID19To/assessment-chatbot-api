@@ -18,16 +18,15 @@ require('./chatBot')(router)
 app.use('/', router)
 
 app.post('/test/AddCallBackNumber', async (req, res) => {
-  const callbackNumber = req.body.number;
+  const callbackNumber = req.body.number
 
   // Call function to add number into Google Sheet
   const { addNumberToGoogleSheet } = require('./lib/index')
   const response = addNumberToGoogleSheet(callbackNumber)
 
-  response.then(async(addNumResp) => {
+  response.then(async (addNumResp) => {
     // Success is true if response is an object, with more than 0 keys, otherwise
     // it is empty/undefined (adding number to google sheet resulted in error)
-    
     res.json({
       success: typeof addNumResp === 'object'
     })
