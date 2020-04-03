@@ -17,35 +17,20 @@ require('./chatBot')(router)
 
 app.use('/', router)
 
-app.get('/testGoogleSheetsFunction', async (req, res) => {
-  // const { addNumberToGoogleSheet } = require('./lib/index')
-  const { GoogleSpreadsheet } = require('google-spreadsheet')
-  const doc = new GoogleSpreadsheet(process.env.SPREAD_SHEET_ID)
+app.post('/test/AddCallBackNumber', async (req, res) => {
+  const callbackNumber = req.body.number;
 
-  await doc.useServiceAccountAuth(require('./google-generated-creds.json'))
+  // Call function to add number into Google Sheet
+  const { addNumberToGoogleSheet } = require('./lib/index')
+  const response = addNumberToGoogleSheet(callbackNumber)
 
-  await doc.loadInfo()
-
-  console.log(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL, process.env.GOOGLE_PRIVATE_KEY)
-
-  // const sheet = await doc.addSheet({ headerValues: ['number'] });
-  // // const sheet = await doc.sheetsById[0];
-  // console.log('sheet.headerValues', sheet)
-
-  // If there are no header rows in the google sheet, then lets make some
-  // if(sheet && !sheet.headerValues) {
-  //   const addHeader = await sheet.setHeaderRow('Callback Numbers')
-  //   console.log('addHeader', addHeader)
-  // }
-  const sheet = await doc.sheetsById[0]
-
-  const { _sheet: { _rawProperties: basicSheetProperties } } = await sheet.addRow({ callbackNumbers: '416-467-1111' })
-
-  // test to see if we got a doc title back
-  // console.log('doc title: ', doc.title)
-
-  res.send({
-    result: basicSheetProperties
+  response.then(async(addNumResp) => {
+    // Success is true if response is an object, with more than 0 keys, otherwise
+    // it is empty/undefined (adding number to google sheet resulted in error)
+    
+    res.json({
+      success: typeof addNumResp === 'object'
+    })
   })
 })
 
