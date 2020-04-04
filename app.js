@@ -22,7 +22,7 @@ app.post('/test/AddCallBackNumber', async (req, res) => {
   const callbackNumber = req.body.number
 
   // Call function to add number into Google Sheet
-  const { addNumberToGoogleSheet } = require('./lib/index')
+  const { addNumberToGoogleSheet } = require('./lib')
   const response = addNumberToGoogleSheet(callbackNumber)
 
   response.then(async (addNumResp) => {

@@ -54,6 +54,11 @@ const messageTableDB = db.define('TwilioMessages', {
   Language: Sequelize.DataTypes.STRING
 }, {})
 
+const authorizeServiceAccount = async (doc) => {
+  const { client_email, private_key } = process.env // eslint-disable-line camelcase
+  await doc.useServiceAccountAuth({ client_email, private_key }) // eslint-disable-line camelcase
+}
+
 module.exports = {
   centerTable,
   hospitalTable,
@@ -64,5 +69,6 @@ module.exports = {
   hospitalTableDB,
   logger,
   yesAllLanguages,
-  noAllLanguages
+  noAllLanguages,
+  authorizeServiceAccount
 }
