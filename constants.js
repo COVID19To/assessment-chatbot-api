@@ -58,9 +58,8 @@ const messageTableDB = db.define('TwilioMessages', {
 const doc = new GoogleSpreadsheet(process.env.SPREAD_SHEET_ID)
 
 const getSheet = async () => {
-  const { client_email, private_key } = process.env // eslint-disable-line camelcase
   // Service Account Auth
-  await doc.useServiceAccountAuth({ client_email, private_key }) // eslint-disable-line camelcase
+  await doc.useServiceAccountAuth({ client_email: process.env.CLIENT_EMAIL, private_key: process.env.PRIVATE_KEY }) // eslint-disable-line camelcase
   await doc.loadInfo()
   const sheet = await doc.sheetsById[0]
   return sheet
