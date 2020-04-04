@@ -17,6 +17,7 @@ require('./chatBot')(router)
 
 app.use('/', router)
 
+// Test route for adding user call back number to google sheets
 app.post('/test/AddCallBackNumber', async (req, res) => {
   const callbackNumber = req.body.number
 
