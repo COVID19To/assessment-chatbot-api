@@ -3,6 +3,7 @@ const centerTable = 'CenterDetails'
 const messagesTable = 'TwilioMessages'
 const Sequelize = require('sequelize')
 var Rollbar = require('rollbar')
+const { GoogleSpreadsheet } = require('google-spreadsheet')
 
 const yesAllLanguages = ['Yes', 'Oui']
 const noAllLanguages = ['No', 'Non']
@@ -54,9 +55,15 @@ const messageTableDB = db.define('TwilioMessages', {
   Language: Sequelize.DataTypes.STRING
 }, {})
 
-const authorizeServiceAccount = async (doc) => {
+const doc = new GoogleSpreadsheet(process.env.SPREAD_SHEET_ID)
+
+const getSheet = async () => {
   const { client_email, private_key } = process.env // eslint-disable-line camelcase
+  // Service Account Auth
   await doc.useServiceAccountAuth({ client_email, private_key }) // eslint-disable-line camelcase
+  await doc.loadInfo()
+  const sheet = await doc.sheetsById[0]
+  return sheet
 }
 
 module.exports = {
@@ -70,5 +77,5 @@ module.exports = {
   logger,
   yesAllLanguages,
   noAllLanguages,
-  authorizeServiceAccount
+  getSheet
 }
