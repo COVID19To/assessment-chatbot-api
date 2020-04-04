@@ -2,9 +2,9 @@ import resolve from '@rollup/plugin-commonjs'
 // to do: allow multiple entry and multipe output
 export default [
   {
-    input: 'twilioFunctions/nearestCenter.js',
+    input: 'twilioFunctions/addPhoneNoToSheet.js',
     output: {
-      file: 'functions/nearestCenter.js',
+      file: 'functions/addPhoneNoToSheet.js',
       format: 'cjs'
     },
     plugins: [resolve()]
