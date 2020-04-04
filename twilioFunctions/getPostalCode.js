@@ -23,7 +23,7 @@ exports.handler = async function (context, event, callback) {
             name: 'ask_questions',
             questions: questions,
             on_complete: {
-              redirect: `${process.env.ASSESMENT_API}/nearestCenter`
+              redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
             }
           }
         }]
