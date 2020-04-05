@@ -24,11 +24,11 @@ const addPhoneNoToSheet = async (context, event, callback) => {
         outreachStatus: 'no',
         assessmentStatus: 'no'
       })
-      // const startTxt = await getTextForFunction('getCenterDetails', event.Channel, 'Both', Language)
+      const responseTxt = await getTextForFunction('EvaluateProvider', event.Channel, 'Both', Language)
       responseObject = {
         actions: [
           {
-            say: 'Thankyou someone will call you soon'
+            say: responseTxt
           },
           {
             redirect: `${process.env.ASSESMENT_API}/menu`

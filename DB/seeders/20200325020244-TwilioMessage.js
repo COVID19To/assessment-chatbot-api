@@ -30,9 +30,12 @@ module.exports = {
       (23, 'getHospitalPostalCode','For the 3 closest hospital to you, enter the first 3 digits of your postal code (for example: A1A)','Both','English', NOW(), NOW()),
       (24, 'getHospitalDetails', 'The 3 closest hospital\\'s to you are', 'Both', 'English', NOW(),NOW()),
       (49, 'LanguageMenu', 'To Continue in English Press 1 , For French Press 2 ', 'Voice', 'English', NOW(),NOW()),
-      (50, 'LanguageMenu', 'To Continue in English Text 1 , For French Text 2 ', 'Voice', 'English', NOW(),NOW());
+      (50, 'LanguageMenu', 'To Continue in English Text 1 , For French Text 2 ', 'Voice', 'English', NOW(),NOW()),
+      (51,'EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English',NOW(),NOW());
     `)
   },
+  // INSERT INTO `database_development`.`TwilioMessages` (`Name`, `Message`, `BotType`, `Language`) VALUES ('EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English');
+  // INSERT INTO `database_development`.`TwilioMessages` (`Name`, `Message`, `BotType`, `Language`) VALUES ('EvaluateProvider', 'Merci quelqu\'un vous appellera bientôt\n\n', 'Both', 'French');
 
   down: (queryInterface, Sequelize) => {
     /*
