@@ -1,36 +1,54 @@
 const {
-  // getTextForFunction,
+  getTextForFunction,
   addNumberToGoogleSheet
 } = require('../lib')
 const { logger } = require('../constants')
-// const { setLanguageOptions } = require('../lib/index')
+const { setLanguageOptions } = require('../lib')
 
 const addPhoneNoToSheet = async (context, event, callback) => {
   try {
     let responseObject = {}
     const phoneNumber = event.UserIdentifier
-    // const memory = JSON.parse(event.Memory)
+    const memory = JSON.parse(event.Memory)
     // Call function to add number into Google Sheet
-    const response = await addNumberToGoogleSheet({ serialNum: '1', phoneNumber, outreachStatus: 'no', assessmentStatus: 'no' })
-    console.log('res', response)
-    // const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
-    // const Language = setLanguageOptions(options)
 
-    // const startTxt = await getTextForFunction('getCenterDetails', event.Channel, 'Both', Language)
+    const options =
+      memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
 
-    responseObject = {
-      actions: [
-        {
-          say: `phone number is ${phoneNumber}`
-        },
-        {
-          redirect: `${process.env.ASSESMENT_API}/menu`
-        },
-        {
-          listen: false
-        }
-      ]
+    const EvaluateProvider = memory.twilio.collected_data.ask_questions.answers.EvaluateProvider.answer.toString().toLowerCase()
+    const Language = setLanguageOptions(options)
+    if (EvaluateProvider === '6') {
+      await addNumberToGoogleSheet({
+        serialNum: '1',
+        number: phoneNumber,
+        outreachStatus: 'no',
+        assessmentStatus: 'no'
+      })
+      // const startTxt = await getTextForFunction('getCenterDetails', event.Channel, 'Both', Language)
+      responseObject = {
+        actions: [
+          {
+            say: 'Thankyou someone will call you soon'
+          },
+          {
+            redirect: `${process.env.ASSESMENT_API}/menu`
+          },
+          {
+            listen: false
+          }
+        ]
+      }
+    } else {
+      const message = await getTextForFunction('Goodbye', event.Channel, 'Both', Language)
+      responseObject = {
+        actions: [
+          {
+            say: message
+          }
+        ]
+      }
     }
+
     callback(null, responseObject)
   } catch (e) {
     console.log(e)
