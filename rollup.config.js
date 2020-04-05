@@ -146,9 +146,9 @@ export default [
     plugins: [resolve()]
   },
   {
-    input: 'twilioFunctions/getPostalCode.js',
+    input: 'twilioFunctions/possibleTest.js',
     output: {
-      file: 'functions/getPostalCode.js',
+      file: 'functions/possibleTest.js',
       format: 'cjs'
     },
     plugins: [resolve()]

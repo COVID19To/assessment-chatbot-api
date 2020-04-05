@@ -228,11 +228,11 @@
             ]
         },
         {
-            "uniqueName": "getPostalCode",
+            "uniqueName": "possibleTest",
             "actions": {
                 "actions": [
                     {
-                        "redirect": "https://assessment-center-api-7940-dev.twil.io/getPostalCode"
+                        "redirect": "https://assessment-center-api-7940-dev.twil.io/possibleTest"
                     }
                 ]
             },

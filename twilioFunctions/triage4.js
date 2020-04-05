@@ -38,7 +38,7 @@ exports.handler = async function (context, event, callback) {
             say: message
           },
           {
-            redirect: `${process.env.ASSESMENT_API}/getPostalCode`
+            redirect: `${process.env.ASSESMENT_API}/possibleTest`
           },
           {
             listen: true
