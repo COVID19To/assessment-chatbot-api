@@ -226,14 +226,14 @@ module.exports = (router) => {
     handler(null, event, callback)
   })
 
-  router.get('/getPostalCode', async (req, res) => {
+  router.get('/possibleTest', async (req, res) => {
     const event = {
     }
     const callback = (err, respond) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('./twilioFunctions/getPostalCode')
+    const { handler } = require('./twilioFunctions/possibleTest')
     handler(null, event, callback)
   })
 
