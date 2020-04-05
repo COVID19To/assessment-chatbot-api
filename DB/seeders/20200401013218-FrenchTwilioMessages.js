@@ -28,6 +28,7 @@ module.exports = {
       (46, 'NewsUpdate','En date du, 20 mars, 19 h 30, 311, confirmés, cas, en, Ontario, 271, cas, en, BC, 195, cas, en, Alberta, 139, Cas, en, Québec, et, 971, cas confirmés au Canada','Voice','French', NOW(), NOW()),
       (47, 'getHospitalPostalCode', 'Pour les 3 hôpitaux les plus proches de vous, entrez les 3 premiers chiffres de votre code postal (par exemple: A1A)','Both','French', NOW(), NOW()),
       (48, 'getHospitalDetails', 'Les 3 hôpitaux les plus proches de chez vous sont', 'Both', 'French', NOW(), NOW());
+      (49,'EvaluateProvider'', 'Merci quelqu\\'un vous appellera bientôt\n\n', 'Both', 'French',NOW(),NOW())
     `)
   },
 

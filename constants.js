@@ -76,10 +76,38 @@ const doc = new GoogleSpreadsheet(process.env.SPREAD_SHEET_ID)
 
 const getSheet = async () => {
   // Service Account Auth
-  const PRIVATE_KEY = `${process.env.PRIVATE_KEY_1}${process.env.PRIVATE_KEY_2}${process.env.PRIVATE_KEY_3}${process.env.PRIVATE_KEY_4}${process.env.PRIVATE_KEY_5}${process.env.PRIVATE_KEY_6}${process.env.PRIVATE_KEY_7}${process.env.PRIVATE_KEY_8}${process.env.PRIVATE_KEY_9}${process.env.PRIVATE_KEY_10}${process.env.PRIVATE_KEY_11}`
+  const privateKey = `-----BEGIN PRIVATE KEY-----
+${process.env.PRIVATE_KEY}
+e7mfybafFNZktU3ZRgdyHDMysosaVsNieF/mF7unuQ4GEFEpTjjTeV9ete/6ObIb
+DYWbC0xgKPyhVeaiiq4qzSoOYoHQt3wX0oW3oDNmFj5BGcLqeBqcEozH/V4O8bKB
+dPctDgRjTWP4YzFqqryDumBl2fOYQuFuA3zhQ1+d5scaUIbcxPYBkXBIQL1MLUDo
+nnLFK99FzYMI139u3NC/vc7pkvqimJVgIPd5atnNNMlE/dR2532hDkA6klpPbRPQ
+h5Xd78HE/qz3vjEAto3DELErN+ERSiYz/k9GCaRpDhrBimNLRHc2C16K1UILQXCW
+S3xUv8nRAgMBAAECggEACM+PrskBDkm2ci+EKQUOU3ai0/+eHmgL5eEO6N0sqeiG
+FnZrcW27HI/06VtyLbtsk6+5GWMtMnUJ94qUKurhTsk9jcvTPYa3ktj1nEWRAgL/
++05SxID5Dsqop0+eMvsxF5REEpSeJOvz0EqwmB6YGgjwAE82LrziP9PpXIDFQxTL
+jYFxmNaklnF0nIjbu9fvoDZdibQB78eBE0idYRCdn3KnIZvyzfZUBWBo1Xxumi9t
+XaHGO3VN395WraDr+1qsLFeutJ/VFN58XEFkqTWO3V/UaDmn2uJYyf6whFbFjT26
+VPs1Q75BOo1QkVyZxzSvrCgZWynJWWzsNWUUnY+KNQKBgQDMQBfHi1JIH/UMK4Cq
+lvTsYhnDKqlDbtBEYyPkSFeoMvlkPu8Qe++94ABTYvXHQlWgd7ox21bdkRTDQONO
+gcsbO+c20zVuobXUzRIajZilnvr8t6p2l6jRQCvMjtSAcnLavyrlY1f0KnptPKbs
+rWBt4UQ7WZnLMcA8qaz+9fVsdQKBgQDHqguftFDdgJb0cL9ZtQSsZ4PXalvFGJG8
+fyTyaPvJmXTt2CapHYoKS9Hg4YIOe8koxzKSU7BqQd2z6oez3LvxdrsVCQo0G8fu
+0Z1bEOcuTdVfoJmg6Wa/ZoWVPk/thH7dy58vsYmOtgBqQOHCKhpJFPLRh9gudgtx
+YaSUmJqsbQKBgBZoebNkr5RGHUZGh4kvopNEd/sXdRZ209aM4eUroqJLZV0AIo42
+aqj0KFT9qGVB+87tE7pgi/km75Y0SjvUtYm5WraDGXuXtjEwhmnvWu3gsTyEkekM
+3nKGjceVa+7jn4IsMvKToZSiDGhrnQyeQNQNQMUaIWtPe/2rx9T4+wH5AoGAJR6f
++pjzT7rQVbGAYZUdwU+dWzcSyJnAvmKE4+xQozI8YtuElHxBZZii9EP4gejRhRtD
+c6DLc3W7We+IOxAWgNWqAkcj9nwTt3qQ3pVN5XXi7VxWM2wxBfRxcUWcZnPzghiR
+B7Th9f4wJZDaZ9ab/GpAmmO+9SRNDE8y4c1dNCECgYAZqxA4Lf49G/ktgqDwQi3i
+ixyEQmZtSOKtLftQHkfhZlDpaRkN+wJvak1+VT3wRpWkE7icx9RZjLuEx6XlJvLv
+czx7ZdWQK7oPEqVDAR/h1EGchWBD46xrip+LgL2TDv/6YEZjhEcGVGQN3hFfp4OX
+Up2B7iwATWVg3gQ3biSGTQ==
+-----END PRIVATE KEY-----`
+
   await doc.useServiceAccountAuth({
     client_email: process.env.CLIENT_EMAIL,
-    private_key: PRIVATE_KEY
+    private_key: privateKey
   }) // eslint-disable-line camelcase
   await doc.loadInfo()
   const sheet = await doc.sheetsById[0]
