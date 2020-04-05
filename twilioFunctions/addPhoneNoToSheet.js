@@ -11,8 +11,9 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     const phoneNumber = event.UserIdentifier
     // const memory = JSON.parse(event.Memory)
     // Call function to add number into Google Sheet
-    await addNumberToGoogleSheet({ serialNum: '1', phoneNumber, outreachStatus: 'no', assessmentStatus: 'no' })
-
+    console.log('add')
+    const response = await addNumberToGoogleSheet({ serialNum: '1', phoneNumber, outreachStatus: 'no', assessmentStatus: 'no' })
+    console.log('res', response)
     // const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     // const Language = setLanguageOptions(options)
 
@@ -21,7 +22,7 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     responseObject = {
       actions: [
         {
-          say: phoneNumber
+          say: `phone number is ${phoneNumber}`
         },
         {
           redirect: `${process.env.ASSESMENT_API}/menu`
@@ -33,6 +34,7 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     }
     callback(null, responseObject)
   } catch (e) {
+    console.log(e)
     logger.log(e)
     callback(e)
   }

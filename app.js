@@ -20,18 +20,16 @@ app.use('/', router)
 // Test route for adding user call back number to google sheets
 app.post('/test/AddCallBackNumber', async (req, res) => {
   const { serialNum, number, outreachStatus, assessmentStatus } = req.body
-
-  // Call function to add number into Google Sheet
-  const { addNumberToGoogleSheet } = require('./lib')
-  const response = addNumberToGoogleSheet({ serialNum, number, outreachStatus, assessmentStatus })
-
-  response.then(async (addNumResp) => {
-    // Success is true if response is an object, with more than 0 keys, otherwise
-    // it is empty/undefined (adding number to google sheet resulted in error)
-    res.json({
-      success: typeof addNumResp === 'object'
-    })
-  })
+  const event = {
+    UserIdentifier: req.body.number,
+    Memory: { serialNum, number, outreachStatus, assessmentStatus }
+  }
+  const callback = (err, respond) => {
+    if (err) res.send(err)
+    res.send(respond)
+  }
+  const { handler } = require('./twilioFunctions/addPhoneNoToSheet')
+  handler(null, event, callback)
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
