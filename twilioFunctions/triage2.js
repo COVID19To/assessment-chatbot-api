@@ -1,15 +1,20 @@
 const { getTextForFunction } = require('../lib/index')
-const { logger } = require('../constants')
+const { logger, yesAllLanguages } = require('../constants')
+const { setLanguageOptions } = require('../lib/index')
+
 exports.handler = async function (context, event, callback) {
   try {
     let responseObject = {}
     let message = ''
     const memory = JSON.parse(event.Memory)
 
-    const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer
+    const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer.toString().toLowerCase()
 
-    if (Breathing === 'Yes') {
-      message = await getTextForFunction('Evaluate-Answers', event.Channel)
+    const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+    const Language = setLanguageOptions(options)
+
+    if (yesAllLanguages.includes(Breathing)) {
+      message = await getTextForFunction('Evaluate-Answers', event.Channel, 'Both', Language)
 
       responseObject = {
         actions: [

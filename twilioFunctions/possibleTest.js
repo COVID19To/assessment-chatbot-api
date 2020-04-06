@@ -7,19 +7,26 @@ exports.handler = async function (context, event, callback) {
     const memory = JSON.parse(event.Memory)
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
     const Language = setLanguageOptions(options)
-    const message = await getTextForFunction('Collect_Fallback', event.Channel, 'Both', Language)
+    const message = await getTextForFunction('possibleTest', event.Channel, 'Both', Language)
+    const questions = [
+      {
+        question: {
+          say: message
+        },
+        name: 'EvaluateProvider'
+      }
+    ]
     const responseObject = {
       actions: [
         {
-          say: message
-        },
-        {
-          redirect: `${process.env.ASSESMENT_API}/menu`
-        },
-        {
-          listen: false
-        }
-      ]
+          collect: {
+            name: 'ask_questions',
+            questions: questions,
+            on_complete: {
+              redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
+            }
+          }
+        }]
     }
     callback(null, responseObject)
   } catch (e) {

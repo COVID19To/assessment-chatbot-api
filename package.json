@@ -1,6 +1,6 @@
 {
   "name": "assessment-center-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "scripts": {
     "start": "nodemon app.js",
@@ -10,6 +10,8 @@
     "lint": "eslint \"**/*.js\"",
     "preseed": "npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
+    "predb:refresh": "npx sequelize db:migrate:undo:all",
+    "db:refresh": "npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,10 +21,12 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "google-spreadsheet": "^3.0.10",
     "mysql2": "^2.1.0",
     "opencage-api-client": "^0.7.1",
     "rollbar": "^2.15.0",
-    "sequelize": "^5.21.5"
+    "sequelize": "^5.21.5",
+    "date-fns": "^2.11.1"
   },
   "husky": {
     "hooks": {
@@ -42,8 +46,8 @@
     "nodemon": "^2.0.2",
     "rollup": "^2.1.0",
     "sequelize-cli": "^5.5.1",
-    "twilio-cli": "1.11.0",
-    "twilio-run": "^2.0.0"
+    "twilio-cli": "^1.12.0",
+    "twilio-run": "^2.4.0"
   },
   "engines": {
     "node": "10.17.0"

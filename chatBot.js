@@ -1,31 +1,4 @@
 module.exports = (router) => {
-  router.post('/nearestCenter', async (req, res) => {
-    const postalCode = req.body.postalCode
-    // Pushing into Twilio format
-    const mem = JSON.stringify({
-      twilio: {
-        collected_data: {
-          ask_questions: {
-            answers: {
-              PostalCode: {
-                answer: postalCode
-              }
-            }
-          }
-        }
-      }
-    })
-
-    const event = {
-      Memory: mem
-    }
-    const callback = (err, respond) => {
-      if (err) res.send(err)
-      res.send(respond)
-    }
-    const { handler } = require('./twilioFunctions/nearestCenter')
-    handler(null, event, callback)
-  })
   // getHospitalPostalCode
   router.post('/getHospitalPostalCode', async (req, res) => {
     const postalCode = req.body.postalCode
@@ -95,6 +68,7 @@ module.exports = (router) => {
 
   router.post('/triage1', async (req, res) => {
     const breathing = req.body.breathing
+    const Language = req.body.Language
 
     const mem = JSON.stringify({
       twilio: {
@@ -103,6 +77,9 @@ module.exports = (router) => {
             answers: {
               Breathing: {
                 answer: breathing
+              },
+              Language: {
+                answer: Language
               }
             }
           }
@@ -249,14 +226,14 @@ module.exports = (router) => {
     handler(null, event, callback)
   })
 
-  router.get('/getPostalCode', async (req, res) => {
+  router.get('/possibleTest', async (req, res) => {
     const event = {
     }
     const callback = (err, respond) => {
       if (err) res.send(err)
       res.send(respond)
     }
-    const { handler } = require('./twilioFunctions/getPostalCode')
+    const { handler } = require('./twilioFunctions/possibleTest')
     handler(null, event, callback)
   })
 
@@ -272,13 +249,83 @@ module.exports = (router) => {
   })
 
   router.get('/greetings', async (req, res) => {
-    const event = {
-    }
+    const Language = req.body.Language
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: Language
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
     const callback = (err, respond) => {
       if (err) res.send(err)
       res.send(respond)
     }
     const { handler } = require('./twilioFunctions/greetings')
+    handler(null, event, callback)
+  })
+
+  router.post('/newsupdate', async (req, res) => {
+    const Language = req.body.Language
+
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: Language
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
+
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+
+    const { handler } = require('./twilioFunctions/newsupdate')
+    handler(null, event, callback)
+  })
+
+  router.post('/languagemenuoptions', async (req, res) => {
+    const Language = req.body.Language
+
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: Language
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
+
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+
+    const { handler } = require('./twilioFunctions/languagemenuoptions')
     handler(null, event, callback)
   })
 }

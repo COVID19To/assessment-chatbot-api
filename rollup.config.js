@@ -2,9 +2,9 @@ import resolve from '@rollup/plugin-commonjs'
 // to do: allow multiple entry and multipe output
 export default [
   {
-    input: 'twilioFunctions/nearestCenter.js',
+    input: 'twilioFunctions/addPhoneNoToSheet.js',
     output: {
-      file: 'functions/nearestCenter.js',
+      file: 'functions/addPhoneNoToSheet.js',
       format: 'cjs'
     },
     plugins: [resolve()]
@@ -13,14 +13,6 @@ export default [
     input: 'twilioFunctions/nearestHospital.js',
     output: {
       file: 'functions/nearestHospital.js',
-      format: 'cjs'
-    },
-    plugins: [resolve()]
-  },
-  {
-    input: 'twilioFunctions/informationRoute.js',
-    output: {
-      file: 'functions/informationRoute.js',
       format: 'cjs'
     },
     plugins: [resolve()]
@@ -154,9 +146,41 @@ export default [
     plugins: [resolve()]
   },
   {
-    input: 'twilioFunctions/getPostalCode.js',
+    input: 'twilioFunctions/possibleTest.js',
     output: {
-      file: 'functions/getPostalCode.js',
+      file: 'functions/possibleTest.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/menu.js',
+    output: {
+      file: 'functions/menu.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/menuoptions.js',
+    output: {
+      file: 'functions/menuoptions.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/languagemenu.js',
+    output: {
+      file: 'functions/languagemenu.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/languagemenuoptions.js',
+    output: {
+      file: 'functions/languagemenuoptions.js',
       format: 'cjs'
     },
     plugins: [resolve()]

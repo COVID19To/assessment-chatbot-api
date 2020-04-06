@@ -1,15 +1,17 @@
 const { getTextForFunction } = require('../lib/index')
 const { logger } = require('../constants')
-
 exports.handler = async function (context, event, callback) {
   try {
-    const message = await getTextForFunction('getPostalCode', event.Channel)
+    const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
+
+    const message = await getTextForFunction('LanguageMenu', channel, channel)
+
     const questions = [
       {
         question: {
           say: message
         },
-        name: 'PostalCode'
+        name: 'Language'
       }
     ]
     const responseObject = {
@@ -19,7 +21,7 @@ exports.handler = async function (context, event, callback) {
             name: 'ask_questions',
             questions: questions,
             on_complete: {
-              redirect: `${process.env.ASSESMENT_API}/nearestCenter`
+              redirect: `${process.env.ASSESMENT_API}/languagemenuoptions`
             }
           }
         }]
