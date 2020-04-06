@@ -30,19 +30,9 @@ jobs:
       TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
       TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
       ROLLBAR_TOKEN: ${{secrets.ROLLBAR_TOKEN}}
-      SPREAD_SHEET_ID: ${{secrets. SPREAD_SHEET_ID_PROD}}
+      SPREAD_SHEET_ID: ${{secrets.SPREAD_SHEET_ID_PROD}}
       CLIENT_EMAIL: ${{secrets.CLIENT_EMAIL}}
-      PRIVATE_KEY_1: ${{secrets.PRIVATE_KEY_1}}
-      PRIVATE_KEY_2: ${{secrets.PRIVATE_KEY_2}}
-      PRIVATE_KEY_3: ${{secrets.PRIVATE_KEY_3}}
-      PRIVATE_KEY_4: ${{secrets.PRIVATE_KEY_4}}
-      PRIVATE_KEY_5: ${{secrets.PRIVATE_KEY_5}}
-      PRIVATE_KEY_6: ${{secrets.PRIVATE_KEY_6}}
-      PRIVATE_KEY_7: ${{secrets.PRIVATE_KEY_7}}
-      PRIVATE_KEY_8: ${{secrets.PRIVATE_KEY_8}}
-      PRIVATE_KEY_9: ${{secrets.PRIVATE_KEY_9}}
-      PRIVATE_KEY_10: ${{secrets.PRIVATE_KEY_10}}
-      PRIVATE_KEY_11: ${{secrets.PRIVATE_KEY_11}}
+      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -65,17 +55,7 @@ jobs:
       - run: echo ROLLBAR_TOKEN=$ROLLBAR_TOKEN >> .env
       - run: echo SPREAD_SHEET_ID=$SPREAD_SHEET_ID >> .env
       - run: echo CLIENT_EMAIL=$CLIENT_EMAIL >> .env
-      - run: echo PRIVATE_KEY_1=$PRIVATE_KEY_1 >> .env
-      - run: echo PRIVATE_KEY_2=$PRIVATE_KEY_2 >> .env
-      - run: echo PRIVATE_KEY_3=$PRIVATE_KEY_3 >> .env
-      - run: echo PRIVATE_KEY_4=$PRIVATE_KEY_4 >> .env
-      - run: echo PRIVATE_KEY_5=$PRIVATE_KEY_5 >> .env
-      - run: echo PRIVATE_KEY_6=$PRIVATE_KEY_6 >> .env
-      - run: echo PRIVATE_KEY_7=$PRIVATE_KEY_7 >> .env
-      - run: echo PRIVATE_KEY_8=$PRIVATE_KEY_8 >> .env
-      - run: echo PRIVATE_KEY_9=$PRIVATE_KEY_9 >> .env
-      - run: echo PRIVATE_KEY_10=$PRIVATE_KEY_10 >> .env
-      - run: echo PRIVATE_KEY_11=$PRIVATE_KEY_11 >> .env
+      - run: echo PRIVATE_KEY=$PRIVATE_KEY >> .env
       - run: cat .env
       - run: npm install -g twilio-cli
       - run: npm install
