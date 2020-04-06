@@ -19,10 +19,10 @@ app.use('/', router)
 
 // Test route for adding user call back number to google sheets
 app.post('/test/AddCallBackNumber', async (req, res) => {
-  const { serialNum, number, outreachStatus, assessmentStatus } = req.body
+  const { reqId, reqOn, number, callbackStatus, contactedOn } = req.body
   const event = {
     UserIdentifier: req.body.number,
-    Memory: { serialNum, number, outreachStatus, assessmentStatus }
+    Memory: { reqId, reqOn, number, callbackStatus, contactedOn }
   }
   const callback = (err, respond) => {
     if (err) res.send(err)
