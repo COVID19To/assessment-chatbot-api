@@ -1,3 +1,5 @@
+const { format } = require('date-fns')
+
 const {
   getTextForFunction,
   addNumberToGoogleSheet
@@ -19,10 +21,11 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     const Language = setLanguageOptions(options)
     if (EvaluateProvider === '6') {
       await addNumberToGoogleSheet({
-        serialNum: '1',
+        reqId: '1',
+        reqOn: format(new Date(), 'MM/dd/yyyy@HH:MM'), // eslint-disable-line quote-props
         number: phoneNumber,
-        outreachStatus: 'no',
-        assessmentStatus: 'no'
+        callbackStatus: '',
+        contactedOn: ''
       })
       const responseTxt = await getTextForFunction('EvaluateProvider', event.Channel, 'Both', Language)
       responseObject = {
