@@ -12,16 +12,17 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     let responseObject = {}
     const phoneNumber = event.UserIdentifier
     const memory = JSON.parse(event.Memory)
-    // Call function to add number into Google Sheet
 
+    // Call function to add number into Google Sheet
     const options =
-      memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+       memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
 
     const EvaluateProvider = memory.twilio.collected_data.ask_questions.answers.EvaluateProvider.answer.toString().toLowerCase()
     const Language = setLanguageOptions(options)
     if (EvaluateProvider === '6') {
+      console.log(format(new Date(), 'dd/MM/yyyy'))
+
       await addNumberToGoogleSheet({
-        reqId: '1',
         reqOn: format(new Date(), 'MM/dd/yyyy@HH:MM'), // eslint-disable-line quote-props
         number: phoneNumber,
         callbackStatus: '',

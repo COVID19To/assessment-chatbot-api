@@ -19,11 +19,28 @@ app.use('/', router)
 
 // Test route for adding user call back number to google sheets
 app.post('/test/AddCallBackNumber', async (req, res) => {
-  const { reqId, reqOn, number, callbackStatus, contactedOn } = req.body
+  const { number } = req.body
   const event = {
     UserIdentifier: req.body.number,
-    Memory: { reqId, reqOn, number, callbackStatus, contactedOn }
+    Memory: JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              EvaluateProvider: {
+                answer: 6
+              },
+              Language: {
+                answer: '1'
+              }
+            }
+          }
+        }
+      },
+      number
+    })
   }
+
   const callback = (err, respond) => {
     if (err) res.send(err)
     res.send(respond)
