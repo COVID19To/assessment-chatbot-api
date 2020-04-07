@@ -145,14 +145,14 @@ export default [
     },
     plugins: [resolve()]
   },
-  {
-    input: 'twilioFunctions/possibleTest.js',
-    output: {
-      file: 'functions/possibleTest.js',
-      format: 'cjs'
-    },
-    plugins: [resolve()]
-  },
+  // {
+  //   input: 'twilioFunctions/possibleTest.js',
+  //   output: {
+  //     file: 'functions/possibleTest.js',
+  //     format: 'cjs'
+  //   },
+  //   plugins: [resolve()]
+  // },
   {
     input: 'twilioFunctions/menu.js',
     output: {
