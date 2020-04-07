@@ -31,7 +31,7 @@ exports.handler = async function (context, event, callback) {
       }
       callback(null, responseObject)
     } else {
-      message = await getTextForFunction('Evaluate-Answers4B', event.Channel, 'Both', Language)
+      message = await getTextForFunction('possibleTest', event.Channel, 'Both', Language)
       responseObject = {
         actions: [
           {
