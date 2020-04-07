@@ -32,10 +32,24 @@ exports.handler = async function (context, event, callback) {
       callback(null, responseObject)
     } else {
       message = await getTextForFunction('possibleTest', event.Channel, 'Both', Language)
+      const questions = [
+        {
+          question: {
+            say: message
+          },
+          name: 'EvaluateProvider'
+        }
+      ]
       responseObject = {
         actions: [
           {
-            say: message
+            collect: {
+              name: 'ask_questions',
+              questions: questions,
+              on_complete: {
+                redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
+              }
+            }
           },
           {
             redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
