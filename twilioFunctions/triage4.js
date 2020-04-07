@@ -50,12 +50,6 @@ exports.handler = async function (context, event, callback) {
                 redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
               }
             }
-          },
-          {
-            redirect: `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
-          },
-          {
-            listen: true
           }
         ]
       }
