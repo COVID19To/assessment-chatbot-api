@@ -96,6 +96,12 @@ Up2B7iwATWVg3gQ3biSGTQ==
   return sheet
 }
 
+const languages = {
+  english: 'English',
+  unknown: 'English',
+  french: 'french'
+}
+
 module.exports = {
   centerTable,
   hospitalTable,
@@ -106,5 +112,6 @@ module.exports = {
   logger,
   yesAllLanguages,
   noAllLanguages,
+  languages,
   getSheet
 }
