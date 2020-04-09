@@ -6,9 +6,9 @@ exports.handler = function (context, event, callback) {
   const memory = JSON.parse(event.Memory)
   const options = memory.twilio.collected_data.ask_questions.answers.Language.answer.toString().toLowerCase()
 
-  const Language = setLanguageOptions(options.toString())
+  const Language = setLanguageOptions(options)
 
-  if (Language === 'English' && (options !== '1' || options.toString() !== 'english')) {
+  if (Language === 'English' && (options !== '1' || options !== 'english')) {
     const message = 'Invalid Language Selection. Default to English'
     responseObject = {
       actions: [{

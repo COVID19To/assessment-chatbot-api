@@ -3,8 +3,6 @@ exports.handler = function (context, event, callback) {
   const memory = JSON.parse(event.Memory)
   const options = memory.twilio.collected_data.ask_questions.answers.Menu.answer.toString().toLowerCase()
 
-  callback(null, [options, memory.twilio.collected_data.ask_questions.answers.Menu.answer])
-
   let redirectask = []
   switch (options) {
     case '1':
