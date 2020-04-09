@@ -4,12 +4,10 @@ exports.handler = function (context, event, callback) {
   const options = memory.twilio.collected_data.ask_questions.answers.Menu.answer.toString().toLowerCase().trim()
   const [split] = options.split(' ')
 
-  callback(null, split)
-
   let redirectask = []
   switch (split) {
     case '1':
-    case 'latest':
+    case 'assessment':
       redirectask = `${process.env.ASSESMENT_API}/newsupdate`
       break
     case '2':
