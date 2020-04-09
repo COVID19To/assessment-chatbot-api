@@ -8,7 +8,7 @@ exports.handler = function (context, event, callback) {
 
   const Language = setLanguageOptions(options)
 
-  if (Language === 'English' && options !== '1') {
+  if (Language === 'English' && (options !== '1' || options !== 'English')) {
     const message = 'Invalid Language Selection. Default to English'
     responseObject = {
       actions: [{
