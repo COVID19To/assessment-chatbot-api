@@ -38,3 +38,38 @@ const nearestCenter = async (context, event, callback) => {
 }
 
 exports.handler = nearestCenter
+
+// const defaultAssementCodeTxt = async (startTxt, centers = [], channel) => {
+//   let resultTxt = `${startTxt} \n`
+//   centers.forEach(center => {
+//     const { CenterName, StreetAddress, City, Province, PostalCode } = center
+
+//     resultTxt =
+//       resultTxt +
+//       `${CenterName} ${StreetAddress} ${City}, ${Province} ${PostalCode}`
+//     resultTxt = resultTxt + '\n '
+//   })
+//   const message = await getTextForFunction('911advise', channel)
+//   resultTxt =
+//     resultTxt +
+//     message
+//   return resultTxt
+// }
+
+const centerTableDB = db.define(
+  'CenterDetails',
+  {
+    CenterName: Sequelize.DataTypes.STRING,
+    StreetAddress: Sequelize.DataTypes.STRING,
+    City: Sequelize.DataTypes.STRING,
+    Province: Sequelize.DataTypes.STRING,
+    PostalCode: Sequelize.DataTypes.STRING,
+    PhoneNumber: Sequelize.DataTypes.STRING,
+    PID: Sequelize.DataTypes.STRING,
+    lat: Sequelize.DataTypes.FLOAT,
+    lng: Sequelize.DataTypes.FLOAT
+  },
+  {
+    tableName: 'CenterDetails'
+  }
+)
