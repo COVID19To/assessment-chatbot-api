@@ -18,7 +18,7 @@ const addPhoneNoToSheet = async (context, event, callback) => {
        memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
 
     const EvaluateProvider = memory.twilio.collected_data.ask_questions.answers.EvaluateProvider.answer.toString().toLowerCase()
-    const Language = setLanguageOptions(options)
+    const { Language } = setLanguageOptions(options)
     if (EvaluateProvider === 'yes') {
       await addNumberToGoogleSheet({
         reqOn: format(new Date(), 'MM/dd/yyyy@HH:MM'), // eslint-disable-line quote-props

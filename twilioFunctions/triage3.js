@@ -11,7 +11,7 @@ exports.handler = async function (context, event, callback) {
     const Breathing = memory.twilio.collected_data.ask_questions.answers.Breathing.answer.toString().toLowerCase()
 
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
-    const Language = setLanguageOptions(options)
+    const { Language } = setLanguageOptions(options)
 
     if (noAllLanguages.includes(Breathing)) {
       message = await getTextForFunction('Evaluate-Answers3', event.Channel, 'Both', Language)

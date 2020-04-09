@@ -8,7 +8,7 @@ const nearestCenter = async (context, event, callback) => {
     const memory = JSON.parse(event.Memory)
     const postalCode = memory.twilio.collected_data.ask_questions.answers.PostalCode.answer
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
-    const Language = setLanguageOptions(options)
+    const { Language } = setLanguageOptions(options)
 
     const top3 = await getTop3Centers(centerTable, postalCode)
     const startTxt = await getTextForFunction('getCenterDetails', event.Channel, 'Both', Language)
