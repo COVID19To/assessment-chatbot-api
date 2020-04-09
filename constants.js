@@ -43,24 +43,6 @@ const hospitalTableDB = db.define(
   {}
 )
 
-const centerTableDB = db.define(
-  'CenterDetails',
-  {
-    CenterName: Sequelize.DataTypes.STRING,
-    StreetAddress: Sequelize.DataTypes.STRING,
-    City: Sequelize.DataTypes.STRING,
-    Province: Sequelize.DataTypes.STRING,
-    PostalCode: Sequelize.DataTypes.STRING,
-    PhoneNumber: Sequelize.DataTypes.STRING,
-    PID: Sequelize.DataTypes.STRING,
-    lat: Sequelize.DataTypes.FLOAT,
-    lng: Sequelize.DataTypes.FLOAT
-  },
-  {
-    tableName: 'CenterDetails'
-  }
-)
-
 const messageTableDB = db.define(
   'TwilioMessages',
   {
@@ -120,7 +102,6 @@ module.exports = {
   db,
   messagesTable,
   messageTableDB,
-  centerTableDB,
   hospitalTableDB,
   logger,
   yesAllLanguages,
