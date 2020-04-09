@@ -7,11 +7,11 @@ exports.handler = function (context, event, callback) {
   let redirectask = []
   switch (split) {
     case '1':
-    case 'assessment':
+    case 'latest':
       redirectask = `${process.env.ASSESMENT_API}/newsupdate`
       break
     case '2':
-    case 'self':
+    case 'assessment':
       redirectask = `${process.env.ASSESMENT_API}/Questions1`
       break
     case '3':
