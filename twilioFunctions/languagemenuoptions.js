@@ -4,7 +4,7 @@ const { setLanguageOptions } = require('../lib/index')
 exports.handler = function (context, event, callback) {
   let responseObject = {}
   const memory = JSON.parse(event.Memory)
-  const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+  const options = memory.twilio.collected_data.ask_questions.answers.Language.answer.toString().toLowerCase()
 
   const Language = setLanguageOptions(options)
 
