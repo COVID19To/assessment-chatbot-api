@@ -2,23 +2,24 @@ exports.handler = function (context, event, callback) {
   let responseObject = {}
   const memory = JSON.parse(event.Memory)
   const options = memory.twilio.collected_data.ask_questions.answers.Menu.answer.toString().toLowerCase().trim()
+  const [split] = options.split(' ')
 
   let redirectask = []
-  switch (options) {
+  switch (split) {
     case '1':
-    case 'latest numbers':
+    case 'latest':
       redirectask = `${process.env.ASSESMENT_API}/newsupdate`
       break
     case '2':
-    case 'self assessment':
+    case 'self':
       redirectask = `${process.env.ASSESMENT_API}/Questions1`
       break
     case '3':
-    case 'isolation tips':
+    case 'isolation':
       redirectask = `${process.env.ASSESMENT_API}/selfisolation`
       break
     case '4':
-    case 'prevention tips':
+    case 'prevention':
       redirectask = `${process.env.ASSESMENT_API}/safetytips`
       break
     default:
