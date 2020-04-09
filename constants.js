@@ -98,7 +98,7 @@ Up2B7iwATWVg3gQ3biSGTQ==
 
 const languages = {
   english: 'English',
-  unknown: 'English',
+  unknown: 'unknown',
   french: 'french'
 }
 
