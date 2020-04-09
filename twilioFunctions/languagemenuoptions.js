@@ -6,7 +6,6 @@ exports.handler = function (context, event, callback) {
   const memory = JSON.parse(event.Memory)
   const options = memory.twilio.collected_data.ask_questions.answers.Language.answer.toString().toLowerCase()
 
-  callback(null, [options, memory.twilio.collected_data.ask_questions.answers.Language.answer])
   const Language = setLanguageOptions(options)
 
   if (Language === 'English' && (options !== '1' || options !== 'english')) {
