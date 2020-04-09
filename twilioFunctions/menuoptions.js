@@ -1,7 +1,7 @@
 exports.handler = function (context, event, callback) {
   let responseObject = {}
   const memory = JSON.parse(event.Memory)
-  const options = memory.twilio.collected_data.ask_questions.answers.Menu.answer.toString().toLowerCase()
+  const options = memory.twilio.collected_data.ask_questions.answers.Menu.answer.toString().toLowerCase().trim()
 
   let redirectask = []
   switch (options) {
