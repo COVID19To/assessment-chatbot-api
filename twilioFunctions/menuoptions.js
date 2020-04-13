@@ -22,8 +22,16 @@ exports.handler = function (context, event, callback) {
     case 'prevention':
       redirectask = `${process.env.ASSESMENT_API}/safetytips`
       break
-    default:
+    case '5':
+    case 'callback':
+      redirectask = `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
+      break
+    case '6':
+    case 'exit':
       redirectask = `${process.env.ASSESMENT_API}/goodbye`
+      break
+    default:
+      redirectask = `${process.env.ASSESMENT_API}/fallback`
   }
 
   responseObject = {
