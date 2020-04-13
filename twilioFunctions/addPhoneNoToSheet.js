@@ -17,7 +17,12 @@ const addPhoneNoToSheet = async (context, event, callback) => {
     const options =
        memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
 
-    const EvaluateProvider = memory.twilio.collected_data.ask_questions.answers.EvaluateProvider.answer.toString().toLowerCase()
+    let EvaluateProvider = ''
+    if ('EvaluateProvider' in memory) {
+      EvaluateProvider = memory.twilio.collected_data.ask_questions.answers.EvaluateProvider.answer.toString().toLowerCase()
+    } else {
+      EvaluateProvider = 'yes'
+    }
     const { Language } = setLanguageOptions(options)
     if (EvaluateProvider === 'yes') {
       await addNumberToGoogleSheet({
