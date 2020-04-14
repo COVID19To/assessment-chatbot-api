@@ -1,14 +1,13 @@
 
-const { setLanguageOptions } = require('../lib/index')
-
+const { setLanguageOptions } = require('../lib')
+const { languages } = require('../constants')
 exports.handler = function (context, event, callback) {
   let responseObject = {}
   const memory = JSON.parse(event.Memory)
-  const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
+  const options = memory.twilio.collected_data.ask_questions.answers.Language.answer.toString().toLowerCase()
 
-  const Language = setLanguageOptions(options)
-
-  if (Language === 'English' && options !== '1') {
+  const { selected } = setLanguageOptions(options)
+  if (selected === languages.unknown) {
     const message = 'Invalid Language Selection. Default to English'
     responseObject = {
       actions: [{

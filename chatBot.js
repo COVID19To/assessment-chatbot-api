@@ -328,4 +328,31 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/languagemenuoptions')
     handler(null, event, callback)
   })
+
+  router.post('/menuoptions', async (req, res) => {
+    const Menu = req.body.Menu
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Menu: {
+                answer: Menu
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = { Memory: mem }
+
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+
+    const { handler } = require('./twilioFunctions/menuoptions')
+    handler(null, event, callback)
+  })
 }

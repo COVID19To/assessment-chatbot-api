@@ -6,7 +6,7 @@ exports.handler = async function (context, event, callback) {
   try {
     const memory = JSON.parse(event.Memory)
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
-    const Language = setLanguageOptions(options)
+    const { Language } = setLanguageOptions(options)
     const channel = event && event.Channel && event.Channel.toLowerCase() === 'voice' ? 'Voice' : 'SMS'
 
     const message = await getTextForFunction('Menu', channel, channel, Language)
@@ -31,19 +31,7 @@ exports.handler = async function (context, event, callback) {
           }
         },
         {
-          listen: {
-            voice_digits: {
-              redirects: {
-                1: `${process.env.ASSESMENT_API}/newsupdate`,
-                2: `${process.env.ASSESMENT_API}/Questions1`,
-                3: `${process.env.ASSESMENT_API}/selfisolation`,
-                4: `${process.env.ASSESMENT_API}/safetytips`,
-                5: `${process.env.ASSESMENT_API}/goodbye`
-              },
-              finish_on_key: '#',
-              num_digits: 1
-            }
-          }
+          listen: true
         }]
     }
     callback(null, responseObject)

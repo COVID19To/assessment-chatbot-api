@@ -11,7 +11,7 @@ exports.handler = async (context, event, callback) => {
     memory.twilio.collected_data.ask_questions.answers.HPostalCode.answer
 
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
-    const Language = setLanguageOptions(options)
+    const { Language } = setLanguageOptions(options)
 
     const top3 = await getTop3Centers(hospitalTable, postalCode)
     const startTxt = await getTextForFunction('getHospitalDetails', event.Channel, 'Both', Language)
