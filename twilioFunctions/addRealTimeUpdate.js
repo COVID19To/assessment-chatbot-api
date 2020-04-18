@@ -10,7 +10,6 @@ exports.handler = async function (context, event, callback) {
     const { data: updateTime } = Papa.parse(updateTimeCsv, { header: true })
     const updateKey = Array.isArray(updateTime) && updateTime.length > 0 && Object.keys(updateTime[0])[0]
     const time = parseISO(updateKey)
-    console.log(time)
     const { data: canadaDataCsv } = await axios.get('https://health-infobase.canada.ca/src/data/covidLive/covid19.csv')
     const { data: unFiltredCanadaData } = Papa.parse(canadaDataCsv, { header: true })
     const JSONCanada = {}
