@@ -30,7 +30,7 @@ exports.handler = async function (context, event, callback) {
       }
     })
 
-    await messageTableDB.update({ Message: text.french }, {
+    await messageTableDB.update({ Message: text.french, BotType: 'Both' }, {
       where: {
         Name: 'NewsUpdate',
         Language: 'French'
