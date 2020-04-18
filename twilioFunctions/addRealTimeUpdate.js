@@ -19,8 +19,8 @@ exports.handler = async function (context, event, callback) {
     })
 
     const text = {
-      french: `Au ${format(time, 'MMMM qo HH:MM aaaa', { locale: frCA })}, ${JSONCanada.Ontario.numconf} cas confirmés en Ontario, ${JSONCanada['British Columbia'].numconf} cas en Colombie-Britannique,  ${JSONCanada.Alberta.numconf} cas en Alberta,  ${JSONCanada.Quebec.numconf} cas au Quebec, and  ${JSONCanada.Canada.numconf} cas confirmés au Canada.`,
-      english: `As of ${format(time, 'MMMM qo HH:MM aaaa')}, ${JSONCanada.Ontario.numconf} confirmed cases in Ontario, ${JSONCanada['British Columbia'].numconf} cases in BC,  ${JSONCanada.Alberta.numconf} cases in Alberta,  ${JSONCanada.Quebec.numconf} Cases in Quebec, and  ${JSONCanada.Canada.numconf} confirmed cases in Canada.`
+      french: `Au ${format(time, 'MMMM do HH:MM aaaa', { locale: frCA })}, ${JSONCanada.Ontario.numconf} cas confirmés en Ontario, ${JSONCanada['British Columbia'].numconf} cas en Colombie-Britannique,  ${JSONCanada.Alberta.numconf} cas en Alberta,  ${JSONCanada.Quebec.numconf} cas au Quebec, and  ${JSONCanada.Canada.numconf} cas confirmés au Canada.`,
+      english: `As of ${format(time, 'MMMM do HH:MM aaaa')}, ${JSONCanada.Ontario.numconf} confirmed cases in Ontario, ${JSONCanada['British Columbia'].numconf} cases in BC,  ${JSONCanada.Alberta.numconf} cases in Alberta,  ${JSONCanada.Quebec.numconf} Cases in Quebec, and  ${JSONCanada.Canada.numconf} confirmed cases in Canada.`
     }
 
     await messageTableDB.update({ Message: text.english }, {
