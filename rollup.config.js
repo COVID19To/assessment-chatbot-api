@@ -2,6 +2,14 @@ import resolve from '@rollup/plugin-commonjs'
 // to do: allow multiple entry and multipe output
 export default [
   {
+    input: 'twilioFunctions/addRealTimeUpdate',
+    output: {
+      file: 'functions/addRealTimeUpdate.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
     input: 'twilioFunctions/addPhoneNoToSheet.js',
     output: {
       file: 'functions/addPhoneNoToSheet.js',
