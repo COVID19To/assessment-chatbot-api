@@ -8,7 +8,7 @@ exports.handler = async function (context, event, callback) {
   try {
     const { data: updateTimeCsv } = await axios.get('https://health-infobase.canada.ca/src/data/covidLive/covid19-updateTime.csv')
     const { data: updateTime } = Papa.parse(updateTimeCsv, { header: true })
-    const updateKey = Array.isArray(updateTime) && updateTime.length > 0 && Object.keys(updateTime[0])[0]
+    const updateKey = (Array.isArray(updateTime) && updateTime.length > 0 && Object.keys(updateTime[0])[0]) || format(new Date(), 'YYY-MM-dd')
     const time = parseISO(updateKey)
     const { data: canadaDataCsv } = await axios.get('https://health-infobase.canada.ca/src/data/covidLive/covid19.csv')
     const { data: unFiltredCanadaData } = Papa.parse(canadaDataCsv, { header: true })
