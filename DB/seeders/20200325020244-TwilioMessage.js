@@ -30,7 +30,9 @@ module.exports = {
       (24, 'getHospitalDetails', 'The 3 closest hospital\\'s to you are', 'Both', 'English', NOW(),NOW()),
       (49, 'LanguageMenu', 'To Continue in English Press 1 , For French Press 2 ', 'Voice', 'English', NOW(),NOW()),
       (50, 'LanguageMenu', 'To Continue in English Text 1 , For French Text 2 ', 'Voice', 'English', NOW(),NOW()),
-      (51, 'EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English',NOW(),NOW());
+      (51, 'EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English',NOW(),NOW()),
+      (59, 'New-Cases', 'To view a list of cases near you, please enter in your postal code.', 'Both', 'English',NOW(),NOW()),
+      (60, New-Cases-Outside-Ontario', 'Unfortunately this service is only available in Ontario but we are working hard to onboard other provinces and will notify you when we are available.', 'Both', 'English',NOW(),NOW());
     `)
   },
   // INSERT INTO `database_development`.`TwilioMessages` (`Name`, `Message`, `BotType`, `Language`) VALUES ('EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English');
