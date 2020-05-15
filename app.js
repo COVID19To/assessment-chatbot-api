@@ -14,8 +14,10 @@ router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
 require('./chatBot')(router)
+const testRoutes = require('./testRoutes')
 
 app.use('/', router)
+app.use('/test', testRoutes)
 
 // Test route for adding user call back number to google sheets
 app.post('/test/AddCallBackNumber', async (req, res) => {
