@@ -1,11 +1,11 @@
 var express = require('express')
 var testRouter = express.Router()
 
-const {getNearestCases} = require('./lib')
+const { getNearestCases } = require('./lib')
 
 testRouter.get('/nearestCasesApiRequest', async (req, res) => {
   if (req.query) {
-    const {query: {postalCode}} = req
+    const { query: { postalCode } } = req
 
     const response = await getNearestCases(postalCode)
     res.send({

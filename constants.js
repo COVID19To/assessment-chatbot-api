@@ -102,8 +102,8 @@ const languages = {
   french: 'french'
 }
 
-const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350';
-const CONFIRMED_CASES_RES_LIMIT = 5;
+const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350'
+const CONFIRMED_CASES_RES_LIMIT = 5
 
 module.exports = {
   centerTable,
