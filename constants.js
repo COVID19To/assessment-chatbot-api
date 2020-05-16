@@ -104,6 +104,8 @@ const languages = {
 
 const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350'
 const CONFIRMED_CASES_RES_LIMIT = 5
+const CONFIRMED_CASES_TOTAL = "Total"
+const CONFIRMED_CASES_API_OUTCOMES = ["Resolved", "Not Resolved", "Fatal"]
 
 module.exports = {
   centerTable,
@@ -118,5 +120,7 @@ module.exports = {
   languages,
   getSheet,
   CONFIRMED_CASES_API_TABLE,
-  CONFIRMED_CASES_RES_LIMIT
+  CONFIRMED_CASES_RES_LIMIT,
+  CONFIRMED_CASES_TOTAL,
+  CONFIRMED_CASES_API_OUTCOMES
 }
