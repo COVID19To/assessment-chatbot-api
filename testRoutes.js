@@ -10,16 +10,24 @@ testRouter.get('/nearestCasesApiRequest', async (req, res) => {
     const response = await getNearestCases(postalCode)
     res.send({
       success: true,
-      total_cases: response
+      cases: response
     })
   }
   else {
     res.send({
       success: false,
-      error: 'Postal Code not provided in query string.',
-      query: req.query.postalCode
+      error: 'Postal Code not provided in query string.'
     })
   }
+})
+
+testRouter.get('/getRealTimeUpdate', async (req, res) => {
+  const callback = (err, respond) => {
+    if (err) res.send(err)
+    res.send(respond)
+  }
+  const { handler } = require('./twilioFunctions/addRealTimeUpdate')
+  handler(null, {}, callback)
 })
 
 module.exports = testRouter
