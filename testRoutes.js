@@ -21,13 +21,4 @@ testRouter.get('/nearestCasesApiRequest', async (req, res) => {
   }
 })
 
-testRouter.get('/getRealTimeUpdate', async (req, res) => {
-  const callback = (err, respond) => {
-    if (err) res.send(err)
-    res.send(respond)
-  }
-  const { handler } = require('./twilioFunctions/addRealTimeUpdate')
-  handler(null, {}, callback)
-})
-
 module.exports = testRouter

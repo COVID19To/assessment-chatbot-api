@@ -51,4 +51,13 @@ app.post('/test/AddCallBackNumber', async (req, res) => {
   handler(null, event, callback)
 })
 
+app.get('/getRealTimeUpdate', async (req, res) => {
+  const callback = (err, respond) => {
+    if (err) res.send(err)
+    res.send(respond)
+  }
+  const { handler } = require('./twilioFunctions/addRealTimeUpdate')
+  handler(null, {}, callback)
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
