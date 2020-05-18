@@ -8,7 +8,7 @@ exports.handler = async (context, event, callback) => {
     const postalCode =
     memory.twilio.collected_data.ask_questions.answers.NCPostalCode.answer
 
-    const result = nearestCasesResponse(postalCode)
+    const result = await nearestCasesResponse(postalCode)
 
     responseObject = {
       actions: [
