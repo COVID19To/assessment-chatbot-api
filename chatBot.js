@@ -359,12 +359,17 @@ module.exports = (router) => {
   router.post('/getNearestCasesPostalCode', async (req, res) => {
     const { body: { postalCode } } = req
 
+    console.log(postalCode)
+
     // Pushing into Twilio format
     const mem = JSON.stringify({
       twilio: {
         collected_data: {
           ask_questions: {
             answers: {
+              Language: {
+                answer: 1
+              },
               NCPostalCode: {
                 answer: postalCode
               }
