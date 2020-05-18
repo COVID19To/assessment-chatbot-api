@@ -27,6 +27,8 @@ exports.handler = function (context, event, callback) {
       redirectask = `${process.env.ASSESMENT_API}/addPhoneNoToSheet`
       break
     case '6':
+      redirectask = `${process.env.ASSESMENT_API}/getNearestCasesPostalCode`
+      break
     case 'exit':
       redirectask = `${process.env.ASSESMENT_API}/goodbye`
       break

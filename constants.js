@@ -102,6 +102,11 @@ const languages = {
   french: 'french'
 }
 
+const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350'
+const CONFIRMED_CASES_RES_LIMIT = 5
+const CONFIRMED_CASES_TOTAL = 'Cases'
+const CONFIRMED_CASES_API_OUTCOMES = ['Resolved', 'Not Resolved', 'Fatal']
+
 module.exports = {
   centerTable,
   hospitalTable,
@@ -113,5 +118,9 @@ module.exports = {
   yesAllLanguages,
   noAllLanguages,
   languages,
-  getSheet
+  getSheet,
+  CONFIRMED_CASES_API_TABLE,
+  CONFIRMED_CASES_RES_LIMIT,
+  CONFIRMED_CASES_TOTAL,
+  CONFIRMED_CASES_API_OUTCOMES
 }
