@@ -1,13 +1,5 @@
 var express = require('express')
-var mysql = require('mysql2')
-
-const connection = mysql.createConnection({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USERNAME,
-  password: process.env.MYSQL_PASS,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQL_PORT
-})
+var { storeNewCasesSubscriber } = require('./lib/index')
 
 var testRouter = express.Router()
 
@@ -32,25 +24,20 @@ testRouter.get('/nearestCasesApiRequest', async (req, res) => {
 })
 
 testRouter.post('/insertIntoNewCasesSubscribers', (req, res) => {
-  let response = 'Cant do this!'
   if (req.body) {
     const { body: { postalCode, number } } = req
 
-    console.log(postalCode, number)
+    const response = storeNewCasesSubscriber(postalCode, number)
 
-    connection.query(`Insert Into NewCasesSubscribers (Subscriber, PostalCode, Active, createdAt, updatedAt)
-                        Values (${number}, '${postalCode}', 1, NOW(), NOW())`, function (error, results) {
-      if (error) console.log(error)
-
-      console.log(`Insert Into NewCasesSubscribers (Subscriber, PostalCode, Active, createdAt, updatedAt)
-                          Values (${number}, ${postalCode}, 1, NOW(), NOW())`)
-      response = results
+    res.send({
+      success: response
     })
   }
-
-  res.send({
-    result: response
-  })
+  else {
+    res.send({
+      success: false
+    })
+  }
 })
 
 module.exports = testRouter
