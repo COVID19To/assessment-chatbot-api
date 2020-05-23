@@ -1,4 +1,4 @@
-const { nearestCasesResponse } = require('../lib')
+const { nearestCasesResponse, storeNewCasesSubscriber } = require('../lib')
 const { logger } = require('../constants')
 
 exports.handler = async (context, event, callback) => {
@@ -7,7 +7,9 @@ exports.handler = async (context, event, callback) => {
     const memory = JSON.parse(event.Memory)
     const postalCode =
     memory.twilio.collected_data.ask_questions.answers.NCPostalCode.answer
+    const phoneNumber = event.UserIdentifier
 
+    storeNewCasesSubscriber(postalCode, phoneNumber)
     const result = await nearestCasesResponse(postalCode)
 
     responseObject = {
