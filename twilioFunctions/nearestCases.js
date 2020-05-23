@@ -7,9 +7,8 @@ exports.handler = async (context, event, callback) => {
     const memory = JSON.parse(event.Memory)
     const postalCode =
     memory.twilio.collected_data.ask_questions.answers.NCPostalCode.answer
-    const phoneNumber = event.UserIdentifier || '434343434343'
+    const phoneNumber = event.UserIdentifier
 
-    console.log(`phoneNumber:${phoneNumber} postalCode:${postalCode}`)
     storeNewCasesSubscriber(postalCode, phoneNumber)
     const result = await nearestCasesResponse(postalCode)
 
