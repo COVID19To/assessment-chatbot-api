@@ -1,5 +1,5 @@
 var express = require('express')
-var { storeNewCasesSubscriber } = require('./lib/index')
+var { storeNewCasesSubscriber, newCasesDailyUpdates } = require('./lib/index')
 
 var testRouter = express.Router()
 
@@ -38,6 +38,11 @@ testRouter.post('/insertIntoNewCasesSubscribers', (req, res) => {
       success: false
     })
   }
+})
+
+testRouter.get('/yesterdayDate', async (req, res) => {
+  const response = await newCasesDailyUpdates('L5W 1N4')
+  res.send({ cases: response })
 })
 
 module.exports = testRouter
