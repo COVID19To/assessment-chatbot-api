@@ -1,5 +1,5 @@
 var express = require('express')
-var { storeNewCasesSubscriber, newCasesDailyUpdates } = require('./lib/index')
+var { storeNewCasesSubscriber, newCasesDailyUpdates, getNewCasesActiveSubscribers, setNewCasesSubscriberActive } = require('./lib/index')
 
 var testRouter = express.Router()
 
@@ -28,6 +28,40 @@ testRouter.post('/insertIntoNewCasesSubscribers', (req, res) => {
     const { body: { postalCode, number } } = req
 
     const response = storeNewCasesSubscriber(postalCode, number)
+    console.log("response", response)
+
+    res.send({
+      success: response
+    })
+  }
+  else {
+    res.send({
+      success: false
+    })
+  }
+})
+
+testRouter.get('/getNewCasesActiveSubscribers', (req, res) => {
+  if (req.body) {
+
+    const response = getNewCasesActiveSubscribers()
+
+    res.send({
+      success: response
+    })
+  }
+  else {
+    res.send({
+      success: false
+    })
+  }
+})
+
+testRouter.post('/setNewCasesSubscriberActive', (req, res) => {
+  if (req.body) {
+    const { body: { number, active } } = req
+
+    const response = setNewCasesSubscriberActive(number, active)
 
     res.send({
       success: response
