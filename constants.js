@@ -105,7 +105,10 @@ const languages = {
 const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350'
 const CONFIRMED_CASES_RES_LIMIT = 5
 const CONFIRMED_CASES_TOTAL = 'Cases'
-const CONFIRMED_CASES_API_OUTCOMES = ['Resolved', 'Not Resolved', 'Fatal']
+const RESOLVED = 'Resolved'
+const NOT_RESOLVED = 'Not Resolved'
+const FATAL = 'Fatal'
+const CONFIRMED_CASES_API_OUTCOMES = [RESOLVED, NOT_RESOLVED, FATAL]
 
 module.exports = {
   centerTable,
@@ -122,5 +125,6 @@ module.exports = {
   CONFIRMED_CASES_API_TABLE,
   CONFIRMED_CASES_RES_LIMIT,
   CONFIRMED_CASES_TOTAL,
-  CONFIRMED_CASES_API_OUTCOMES
+  CONFIRMED_CASES_API_OUTCOMES,
+  FATAL
 }

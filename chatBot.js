@@ -417,4 +417,32 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/nearestCases')
     handler(null, event, callback)
   })
+
+  // New Cases Update Route
+  router.post('/nearestCasesUpdates', async (req, res) => {
+    const { body: { postalCode } } = req
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              NCPostalCode: {
+                answer: postalCode
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = {
+      Memory: mem
+    }
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/nearestCasesUpdates')
+    handler(null, event, callback)
+  })
 }
