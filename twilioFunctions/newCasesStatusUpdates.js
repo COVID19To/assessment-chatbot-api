@@ -2,14 +2,14 @@ const axios = require('axios')
 const { getNewCasesActiveSubscribers } = require('../lib')
 const { logger } = require('../constants')
 
-const responseObject = {}
-
 exports.handler = async (context, event, callback) => {
   try {
     // Create a function to get total new cases  (fatal & unresolved [Today vs Yesterday])
     const subscribers = getNewCasesActiveSubscribers()
-    subscribers.map(({ Subscriber, PostalCode }) => {
-      axios({
+    const responseFirst = []
+
+    subscribers.map(async ({ Subscriber, PostalCode }, index) => {
+      const response = await axios({
         method: 'post',
         url: '/nearestCasesUpdates',
         data: {
@@ -31,7 +31,18 @@ exports.handler = async (context, event, callback) => {
           }
         }
       })
+      if (index === 0) {
+        responseFirst.push(response)
+      }
     })
+
+    const responseObject = {
+      actions: [
+        {
+          responseFirst
+        }
+      ]
+    }
 
     callback(null, responseObject)
   } catch (e) {
