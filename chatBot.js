@@ -445,4 +445,14 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/nearestCasesUpdates')
     handler(null, event, callback)
   })
+
+  // New Cases Status Update Route => called by cron job & calls nearestCasesUpdates route
+  router.post('/newCasesStatusUpdates', async (req, res) => {
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/newCasesStatusUpdates')
+    handler(null, {}, callback)
+  })
 }

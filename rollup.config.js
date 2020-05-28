@@ -208,5 +208,21 @@ export default [
       format: 'cjs'
     },
     plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/nearestCasesUpdates.js',
+    output: {
+      file: 'functions/nearestCasesUpdates.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/newCasesStatusUpdates.js',
+    output: {
+      file: 'functions/newCasesStatusUpdates.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
   }
 ]

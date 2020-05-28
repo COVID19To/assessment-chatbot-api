@@ -28,7 +28,6 @@ testRouter.post('/insertIntoNewCasesSubscribers', (req, res) => {
     const { body: { postalCode, number } } = req
 
     const response = storeNewCasesSubscriber(postalCode, number)
-    console.log("response", response)
 
     res.send({
       success: response
@@ -43,7 +42,6 @@ testRouter.post('/insertIntoNewCasesSubscribers', (req, res) => {
 
 testRouter.get('/getNewCasesActiveSubscribers', (req, res) => {
   if (req.body) {
-
     const response = getNewCasesActiveSubscribers()
 
     res.send({
