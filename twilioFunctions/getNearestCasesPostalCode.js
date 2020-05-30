@@ -8,7 +8,7 @@ exports.handler = async function (context, event, callback) {
     const options = memory.twilio.collected_data.ask_questions.answers.Language.answer || '1'
 
     const { Language } = setLanguageOptions(options)
-    const message = await getTextForFunction('getNearestCasesPostalCode', event.Channel, 'Both', Language)
+    const message = await getTextForFunction('getNearestCasesPostalCode', event.Channel, 'SMS', Language)
 
     const questions = [
       {
