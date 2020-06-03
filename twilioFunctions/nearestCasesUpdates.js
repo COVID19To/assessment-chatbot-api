@@ -1,29 +1,34 @@
-const axios = require('axios')
+// const axios = require('axios')
 const { newCasesDailyUpdates } = require('../lib')
 const { logger } = require('../constants')
 
-const responseObject = {}
+const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
 
 exports.handler = async (context, event, callback) => {
   try {
-    const memory = JSON.parse(event.Memory)
-    const postalCode =
-    memory.twilio.collected_data.ask_questions.answers.NCPostalCode.answer
-
-    const phoneNumber = event.UserIdentifier
+    const { phoneNumber, postalCode } = event
 
     // Create a function to get total new cases  (fatal & unresolved [Today vs Yesterday])
     const result = await newCasesDailyUpdates(postalCode)
+    let clientMessageResponse = ''
 
-    axios({
-      method: 'post',
-      url: `/2010-04-01/Accounts/${process.env.AccountSid}/Messages`,
-      data: {
-        to: `+${phoneNumber}`,
+    const message = await client.messages
+      .create({
+        body: result,
         from: '+18886005722',
-        body: result
-      }
-    })
+        to: `+${phoneNumber}`
+      })
+
+    clientMessageResponse = message.sid
+
+    const responseObject = {
+      actions: [
+        {
+          result,
+          clientMessageResponse
+        }
+      ]
+    }
 
     callback(null, responseObject)
   } catch (e) {

@@ -420,23 +420,11 @@ module.exports = (router) => {
 
   // New Cases Update Route
   router.post('/nearestCasesUpdates', async (req, res) => {
-    const { body: { postalCode } } = req
-    const mem = JSON.stringify({
-      twilio: {
-        collected_data: {
-          ask_questions: {
-            answers: {
-              NCPostalCode: {
-                answer: postalCode
-              }
-            }
-          }
-        }
-      }
-    })
+    const { body: { postalCode, phoneNumber } } = req
 
     const event = {
-      Memory: mem
+      phoneNumber,
+      postalCode
     }
     const callback = (err, respond) => {
       if (err) res.send(err)
@@ -447,12 +435,21 @@ module.exports = (router) => {
   })
 
   // New Cases Status Update Route => called by cron job & calls nearestCasesUpdates route
-  router.post('/newCasesStatusUpdates', async (req, res) => {
+  router.get('/newCasesStatusUpdates', async (req, res) => {
     const callback = (err, respond) => {
       if (err) res.send(err)
       res.send(respond)
     }
     const { handler } = require('./twilioFunctions/newCasesStatusUpdates')
     handler(null, {}, callback)
+  })
+
+  router.get('/getSubscriberData', async (req, res) => {
+    var { getNewCasesActiveSubscribers } = require('./lib/index')
+    const subscribers = await getNewCasesActiveSubscribers()
+
+    res.send({
+      subscribers
+    })
   })
 }
