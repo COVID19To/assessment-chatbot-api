@@ -1,4 +1,5 @@
 var express = require('express')
+var axios = require('axios')
 var { storeNewCasesSubscriber, newCasesDailyUpdates, getNewCasesActiveSubscribers, setNewCasesSubscriberActive } = require('./lib/index')
 
 var testRouter = express.Router()
@@ -75,6 +76,66 @@ testRouter.post('/setNewCasesSubscriberActive', (req, res) => {
 testRouter.get('/yesterdayDate', async (req, res) => {
   const response = await newCasesDailyUpdates('L5W 1N4')
   res.send({ cases: response })
+})
+
+testRouter.get('/getSubPost', async (req, res) => {
+  const subscribers = await getNewCasesActiveSubscribers()
+
+  res.send({
+    subscribers
+  })
+})
+
+testRouter.get('/ac2', async (req, res) => {
+  const subscribers = await getNewCasesActiveSubscribers()
+
+  // const responseFirst = []
+
+  const { Subscriber, PostalCode } = subscribers[0]
+  console.log(Subscriber, PostalCode)
+
+  const response = await axios.post('/test', {
+    postalCode: PostalCode, phoneNumber: Subscriber
+  })
+
+  // const response = await axios({
+  //   method: 'post',
+  //   url: '/nearestCasesUpdates',
+  //   data: { postalCode: PostalCode, phoneNumber: Subscriber }
+  // })
+  console.log(response)
+  res.send({})
+
+  // subscribers.map(async ({ Subscriber, PostalCode }, index) => {
+  //   const response = await axios({
+  //     method: 'post',
+  //     url: '/nearestCasesUpdates',
+  //     data: {
+  //       event: {
+  //         UserIdentifier: Subscriber,
+  //         Memory: JSON.stringify({
+  //           twilio: {
+  //             collected_data: {
+  //               ask_questions: {
+  //                 answers: {
+  //                   NCPostalCode: {
+  //                     answer: PostalCode
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  //   if (index === 0) {
+  //     responseFirst.push(response)
+  //   }
+  // })
+  //
+  // console.log(responseFirst)
+  // res.send({responseFirst})
 })
 
 module.exports = testRouter

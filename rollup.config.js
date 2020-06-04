@@ -218,9 +218,9 @@ export default [
     plugins: [resolve()]
   },
   {
-    input: 'twilioFunctions/newCasesStatusUpdates.js',
+    input: 'twilioFunctions/getSubscriberData.js',
     output: {
-      file: 'functions/newCasesStatusUpdates.js',
+      file: 'functions/getSubscriberData.js',
       format: 'cjs'
     },
     plugins: [resolve()]
