@@ -35,7 +35,8 @@ module.exports = {
       (53,'getHospitalPostalCode','For the 3 closest hospital to you, say the first 3 digits of your postal code (for example: A1A)','Voice','English',NOW(),NOW()),
       (55,'getHospitalPostalCode','For the 3 closest hospital to you, reply the first 3 digits of your postal code (for example: A1A)','SMS','English',NOW(),NOW()),
       (56,'getHospitalPostalCode','For the 3 closest hospital to you, reply the first 3 digits of your postal code (for example: A1A)','slack','English',NOW(),NOW()),
-      (59,'getNearestCasesPostalCode','To view a list of cases near you, please enter in your postal code.','Both','English',NOW(),NOW());       
+      (59,'getNearestCasesPostalCode','To view a list of cases near you, please enter in your postal code.','SMS','English',NOW(),NOW()),       
+      (60,'unsubscribeNearestCasesUpdates','You have succesfully unsubscribed to nearest cases alerts','SMS','English',NOW(),NOW());       
     `)
   },
   // INSERT INTO `database_development`.`TwilioMessages` (`Name`, `Message`, `BotType`, `Language`) VALUES ('EvaluateProvider', 'Thankyou someone will call you soon', 'Both', 'English');
