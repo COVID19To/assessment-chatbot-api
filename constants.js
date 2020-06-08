@@ -110,6 +110,8 @@ const NOT_RESOLVED = 'Not Resolved'
 const FATAL = 'Fatal'
 const CONFIRMED_CASES_API_OUTCOMES = [RESOLVED, NOT_RESOLVED, FATAL]
 
+const ONTARIO_POSTAL_CODE_FIRST_LETTER = ['K', 'L', 'M', 'N', 'P']
+
 module.exports = {
   centerTable,
   hospitalTable,
@@ -126,5 +128,6 @@ module.exports = {
   CONFIRMED_CASES_RES_LIMIT,
   CONFIRMED_CASES_TOTAL,
   CONFIRMED_CASES_API_OUTCOMES,
-  FATAL
+  FATAL,
+  ONTARIO_POSTAL_CODE_FIRST_LETTER
 }
