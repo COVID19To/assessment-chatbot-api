@@ -355,4 +355,91 @@ module.exports = (router) => {
     const { handler } = require('./twilioFunctions/menuoptions')
     handler(null, event, callback)
   })
+
+  router.post('/getNearestCasesPostalCode', async (req, res) => {
+    const { body: { postalCode } } = req
+
+    console.log(postalCode)
+
+    // Pushing into Twilio format
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              Language: {
+                answer: 1
+              },
+              NCPostalCode: {
+                answer: postalCode
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = {
+      Memory: mem
+    }
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/getNearestCasesPostalCode')
+    handler(null, event, callback)
+  })
+
+  router.post('/nearestCases', async (req, res) => {
+    const { body: { postalCode } } = req
+    // Pushing into Twilio format
+    const mem = JSON.stringify({
+      twilio: {
+        collected_data: {
+          ask_questions: {
+            answers: {
+              NCPostalCode: {
+                answer: postalCode
+              }
+            }
+          }
+        }
+      }
+    })
+
+    const event = {
+      Memory: mem
+    }
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/nearestCases')
+    handler(null, event, callback)
+  })
+
+  // New Cases Update Route
+  router.post('/nearestCasesUpdates', async (req, res) => {
+    const { body: { postalCode, phoneNumber } } = req
+
+    const event = {
+      phoneNumber,
+      postalCode
+    }
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/nearestCasesUpdates')
+    handler(null, event, callback)
+  })
+
+  router.get('/getSubscriberData', async (req, res) => {
+    const callback = (err, respond) => {
+      if (err) res.send(err)
+      res.send(respond)
+    }
+    const { handler } = require('./twilioFunctions/getSubscriberData')
+    handler(null, {}, callback)
+  })
 }

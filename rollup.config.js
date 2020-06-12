@@ -192,5 +192,37 @@ export default [
       format: 'cjs'
     },
     plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/getNearestCasesPostalCode.js',
+    output: {
+      file: 'functions/getNearestCasesPostalCode.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/nearestCases.js',
+    output: {
+      file: 'functions/nearestCases.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/nearestCasesUpdates.js',
+    output: {
+      file: 'functions/nearestCasesUpdates.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
+  },
+  {
+    input: 'twilioFunctions/getSubscriberData.js',
+    output: {
+      file: 'functions/getSubscriberData.js',
+      format: 'cjs'
+    },
+    plugins: [resolve()]
   }
 ]

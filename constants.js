@@ -102,6 +102,16 @@ const languages = {
   french: 'french'
 }
 
+const CONFIRMED_CASES_API_TABLE = '455fd63b-603d-4608-8216-7d8647f43350'
+const CONFIRMED_CASES_RES_LIMIT = 5
+const CONFIRMED_CASES_TOTAL = 'Cases'
+const RESOLVED = 'Resolved'
+const NOT_RESOLVED = 'Not Resolved'
+const FATAL = 'Fatal'
+const CONFIRMED_CASES_API_OUTCOMES = [RESOLVED, NOT_RESOLVED, FATAL]
+
+const ONTARIO_POSTAL_CODE_FIRST_LETTER = ['K', 'L', 'M', 'N', 'P']
+
 module.exports = {
   centerTable,
   hospitalTable,
@@ -113,5 +123,11 @@ module.exports = {
   yesAllLanguages,
   noAllLanguages,
   languages,
-  getSheet
+  getSheet,
+  CONFIRMED_CASES_API_TABLE,
+  CONFIRMED_CASES_RES_LIMIT,
+  CONFIRMED_CASES_TOTAL,
+  CONFIRMED_CASES_API_OUTCOMES,
+  FATAL,
+  ONTARIO_POSTAL_CODE_FIRST_LETTER
 }
